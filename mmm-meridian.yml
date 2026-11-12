@@ -9,6 +9,8 @@ dependencies:
   - pip
   - pip:
       - google-meridian[and-cuda]==2.2.0
+      # GeoX is a separate package (the unrelated "geox" on PyPI is not it).
+      - meridian-geox==1.0.1
       - tensorflow==2.21.0
       - tf-keras==2.21.0
       - tfp-nightly==0.26.0.dev20260130

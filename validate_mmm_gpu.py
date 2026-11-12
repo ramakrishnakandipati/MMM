@@ -170,5 +170,41 @@ if installed("meridian"):
         meridian.sample_posterior(n_chains=4, n_adapt=100, n_burnin=100, n_keep=100, seed=1)
     report_fit("Meridian", watch, meridian.inference_data.posterior.sizes["chain"])
 
+if installed("meridian_geox"):
+    import datetime as dt
+
+    import meridian_geox as geox
+    import numpy as np
+    import pandas as pd
+
+    print(f"       Meridian GeoX {geox.__version__}", flush=True)
+    rng = np.random.default_rng(7)
+    n_geos, n_days, exp_days, planted_lift = 60, 140, 28, 0.10
+    dates = pd.date_range("2026-01-01", periods=n_days, freq="D")
+    size = rng.lognormal(5, 0.6, n_geos)
+    trend = (1 + 0.2 * np.sin(2 * np.pi * np.arange(n_days) / 7)) * (1 + 0.002 * np.arange(n_days))
+    geo_data = pd.DataFrame({
+        "date": np.tile(dates, n_geos),
+        "location": np.repeat([f"geo_{i:02d}" for i in range(n_geos)], n_days),
+        "conversions": rng.poisson(size[:, None] * trend[None, :]).astype(float).ravel(),
+    })
+    pretest_end = dates[n_days - exp_days - 1]
+    config = geox.DesignConfig(experiment_duration=dt.timedelta(days=exp_days), n_candidates=2000,
+                               n_ranked_candidates=20, design_output_count=3, seed=1)
+    with GpuWatch(jax_in_use) as watch:
+        design_set = geox.run_design(geo_data[geo_data["date"] <= pretest_end], config, geox.Constraints())
+        design = next(iter(design_set.designs.values()))
+        treated = set().union(*(cell.treatment_geos for cell in design.designs.values()))
+        run_data = geo_data.copy()
+        in_test = run_data["location"].isin(treated) & (run_data["date"] > pretest_end)
+        run_data.loc[in_test, "conversions"] *= 1 + planted_lift
+        analysis = geox.analyze(run_data, geox.AnalysisConfig(
+            design=design, analysis_start_date=dates[n_days - exp_days],
+            analysis_end_date=dates[-1], pretest_end_date=pretest_end))
+    check("GeoX used GPU during design and analysis", watch.used > 0, f"+{watch.used:.1f} MiB, {watch.seconds:.1f}s")
+    lift = next(iter(analysis.results.values())).percent_lift
+    check("GeoX recovers planted lift", abs(lift.point_estimate - planted_lift) < 0.02,
+          f"estimate {lift.point_estimate:.3f} [{lift.lower_bound:.3f}, {lift.upper_bound:.3f}], truth {planted_lift}")
+
 print("\nRESULT:", f"FAILED: {failures}" if failures else "All checks passed.")
 sys.exit(1 if failures else 0)
