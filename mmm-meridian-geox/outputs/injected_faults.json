@@ -1,0 +1,16 @@
+{
+  "outage_dates": [
+    "2026-04-17",
+    "2026-04-18"
+  ],
+  "event_spikes": {
+    "Austin": "2026-03-15 +4d x1.9",
+    "Nashville": "2026-05-12 +3d x1.7"
+  },
+  "zero_response_geo": "Fresno",
+  "missing_dates": [
+    "2026-02-21",
+    "2026-02-22"
+  ],
+  "duplicate_rows": 25
+}

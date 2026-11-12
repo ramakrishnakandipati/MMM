@@ -1,0 +1,259 @@
+[WARNING] Found geos with spend > 0 and no response. Those outlier geos will be removed from design and analysis.
+[WARNING] Found outlier pretest dates. Those outlier dates will be removed from design or analysis.
+E1112 16:15:40.860723   10030 cuda_executor.cc:1439] [0] Failed to allocate device memory of 18.00GiB (19327352832 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:15:40.861649   10030 cuda_executor.cc:1439] [0] Failed to allocate device memory of 16.20GiB (17394616320 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:15:40.862135   10030 cuda_executor.cc:1439] [0] Failed to allocate device memory of 14.58GiB (15655154688 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:15:40.863163   10030 cuda_executor.cc:1439] [0] Failed to allocate device memory of 13.12GiB (14089638912 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:15:40.863788   10030 cuda_executor.cc:1439] [0] Failed to allocate device memory of 11.81GiB (12680674304 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:15:40.864236   10030 cuda_executor.cc:1439] [0] Failed to allocate device memory of 10.63GiB (11412606976 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:15:40.864732   10030 cuda_executor.cc:1439] [0] Failed to allocate device memory of 9.57GiB (10271345664 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:15:40.865423   10030 cuda_executor.cc:1439] [0] Failed to allocate device memory of 8.61GiB (9244211200 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:15:40.865880   10030 cuda_executor.cc:1439] [0] Failed to allocate device memory of 7.75GiB (8319790080 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:15:40.866366   10030 cuda_executor.cc:1439] [0] Failed to allocate device memory of 6.97GiB (7487811072 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:15:40.866760   10030 cuda_executor.cc:1439] [0] Failed to allocate device memory of 6.28GiB (6739030016 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:15:40.867198   10030 cuda_executor.cc:1439] [0] Failed to allocate device memory of 5.65GiB (6065126912 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:15:40.867590   10030 cuda_executor.cc:1439] [0] Failed to allocate device memory of 5.08GiB (5458614272 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:15:40.868003   10030 cuda_executor.cc:1439] [0] Failed to allocate device memory of 4.58GiB (4912752640 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:15:40.868569   10030 cuda_executor.cc:1439] [0] Failed to allocate device memory of 4.12GiB (4421477376 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+[WARNING] Found geos with spend > 0 and no response. Those outlier geos will be removed from design and analysis.
+[WARNING] Found outlier pretest dates. Those outlier dates will be removed from design or analysis.
+[WARNING] Found geos with spend > 0 and no response. Those outlier geos will be removed from design and analysis.
+[WARNING] Found outlier pretest dates. Those outlier dates will be removed from design or analysis.
+[WARNING] Found geos with spend > 0 and no response. Those outlier geos will be removed from design and analysis.
+[WARNING] Found outlier pretest dates. Those outlier dates will be removed from design or analysis.
+[WARNING] Found geos with spend > 0 and no response. Those outlier geos will be removed from design and analysis.
+[WARNING] Found outlier pretest dates. Those outlier dates will be removed from design or analysis.
+
+====================================================================================================
+1. OPERATIONAL EXCLUSIONS (cannot be treatment OR control)
+====================================================================================================
+    location region  avg_daily_rev_k  peak_occupancy  renovation        exclusion_reason
+    New York     NE              520            0.93           0                flagship
+    Savannah     SE               24            0.90           1              renovation
+Myrtle Beach     SE               28            0.96           0          occupancy>=95%
+     Orlando     FL              300            0.97           0 flagship;occupancy>=95%
+       Miami     FL              240            0.96           0          occupancy>=95%
+ Los Angeles     WE              330            0.89           0                flagship
+    Honolulu     WE              160            0.96           0          occupancy>=95%
+   Las Vegas     WE              250            0.95           0 flagship;occupancy>=95%
+Palm Springs     WE               26            0.88           1              renovation
+
+====================================================================================================
+2. DURATION SWEEP  (best design per duration; alpha=0.10 two-sided, power=0.80)
+====================================================================================================
+ test_days    r2  mde_pct  mde_abs_rev  incr_spend  min_detectable_iROAS  treat_geos  treat_rev_share_pct  aa_pvalue
+        14 0.956    2.249   370706.205  380636.062                 0.974          13               30.179      0.291
+        21 0.953    2.139   517412.186  550062.422                 0.941          12               29.783      0.451
+        28 0.933    2.477   782254.520  724107.375                 1.080          13               29.659      0.648
+        35 0.952    2.772  1109230.793  897375.938                 1.236          14               30.078      0.600
+        42 0.944    2.438  1037406.835  967641.656                 1.072          12               26.495      0.233
+
+min_detectable_iROAS = MDE revenue / incremental spend  (what iROAS the test can resolve at 80% power)
+
+====================================================================================================
+3. COOLDOWN SIZING - share of lifetime incremental revenue captured in the read window
+====================================================================================================
+lag kernel (days since ad -> booking), mean lag = 4.9 d, P(lag<=7)=78%, P(lag<=14)=100%
+ test_days  cooldown_0d  cooldown_7d  cooldown_14d  cooldown_21d
+        14         64.7         95.1         100.0         100.0
+        21         76.4         96.7         100.0         100.0
+        28         82.3         97.6         100.0         100.0
+        35         85.9         98.0         100.0         100.0
+        42         88.2         98.4         100.0         100.0
+-> with a 14d cooldown ~100% of the lifetime effect is observed; reading only the test window under-states iROAS by the gap shown in the cooldown_0d column.
+
+====================================================================================================
+4. FINAL DESIGN - top-10 candidates for the 28-day test
+====================================================================================================
+design_id   cell      design_methodology     r2    mde     mde_abs  p_value (AA)      budget  treatment_conversions_pct  treatment_geo_count
+ 5808f5c3 cell_1 STRATIFIED_SAMPLING-TBR 0.9326 0.0248 782254.5198        0.6483 724107.3750                    29.6586                   13
+ 8fcb4e85 cell_1 STRATIFIED_SAMPLING-TBR 0.9324 0.0249 782274.7188        0.3979 713955.2812                    29.4663                   13
+ 19e4888d cell_1 STRATIFIED_SAMPLING-TBR 0.9371 0.0260 842420.4304        0.1506 727167.6094                    30.4455                   14
+ 6ef5056e cell_1 STRATIFIED_SAMPLING-TBR 0.9397 0.0261 842423.9662        0.1376 733604.4844                    30.3451                   14
+ 401610e5 cell_1 STRATIFIED_SAMPLING-TBR 0.9386 0.0262 842432.9695        0.3209 733986.8438                    30.1721                   14
+ 332bd1ae cell_1 STRATIFIED_SAMPLING-TBR 0.9362 0.0263 842429.2466        0.5866 722973.0938                    30.0815                   14
+ 4030ffef cell_1 STRATIFIED_SAMPLING-TBR 0.9356 0.0263 842444.6356        0.3663 725099.9062                    30.0680                   14
+ 6857cf9f cell_1 STRATIFIED_SAMPLING-TBR 0.9407 0.0265 842443.2256        0.6472 720359.3438                    29.8523                   14
+ 8e435220 cell_1 STRATIFIED_SAMPLING-TBR 0.9428 0.0265 842442.9394        0.6097 725982.0000                    29.8395                   14
+ 3b1d1570 cell_1 STRATIFIED_SAMPLING-TBR 0.9519 0.0267 842447.9650        0.5772 720347.5312                    29.6523                   14
+
+====================================================================================================
+POWER CURVE for the chosen design (test-window read vs. test+cooldown read)
+====================================================================================================
+read        test + 14d cooldown  test window only
+true_iROAS                                       
+0.5                        0.31              0.25
+1.0                        0.74              0.60
+1.5                        0.96              0.88
+2.0                        1.00              0.98
+3.0                        1.00              1.00
+4.0                        1.00              1.00
+
+MDE (80% power) = 2.48% of treatment-geo revenue = $782,255;  extra spend required (+75%) = $724,107
+
+====================================================================================================
+5. FINAL ASSIGNMENT TABLE
+====================================================================================================
+        location     group  stratum                                reason region  peak_occupancy  avg_daily_rev  avg_daily_spend
+     Albuquerque   CONTROL        0               business-as-usual spend     MT            0.79        29553.0            894.0
+       Asheville   CONTROL        0               business-as-usual spend     SE            0.88        21947.0            678.0
+          Austin   CONTROL        0               business-as-usual spend     TX            0.87        92462.0           2843.0
+      Birmingham   CONTROL        0               business-as-usual spend     SE            0.79        37859.0           1142.0
+   Charleston SC   CONTROL        0               business-as-usual spend     SE            0.91        34274.0           1035.0
+       Charlotte   CONTROL        0               business-as-usual spend     SE            0.84        73043.0           2178.0
+       Cleveland   CONTROL        0               business-as-usual spend     MW            0.77        50400.0           1516.0
+Colorado Springs   CONTROL        0               business-as-usual spend     MT            0.81        17420.0            538.0
+          Denver   CONTROL        0               business-as-usual spend     MT            0.85        97728.0           3002.0
+      Fort Myers   CONTROL        0               business-as-usual spend     FL            0.90        43955.0           1331.0
+         Memphis   CONTROL        0               business-as-usual spend     SE            0.78        40952.0           1237.0
+       Nashville   CONTROL        0               business-as-usual spend     SE            0.90        82511.0           2517.0
+       Pensacola   CONTROL        0               business-as-usual spend     FL            0.85        23107.0            706.0
+     Portland OR   CONTROL        0               business-as-usual spend     WE            0.82        66664.0           2030.0
+  Salt Lake City   CONTROL        0               business-as-usual spend     MT            0.82        53300.0           1624.0
+     San Antonio   CONTROL        0               business-as-usual spend     TX            0.84        60244.0           1839.0
+   Santa Barbara   CONTROL        0               business-as-usual spend     WE            0.87        16949.0            506.0
+          Albany   CONTROL        1               business-as-usual spend     NE            0.76        35125.0           1055.0
+       Baltimore   CONTROL        1               business-as-usual spend     NE            0.82        60085.0           1810.0
+         Buffalo   CONTROL        1               business-as-usual spend     NE            0.77        38666.0           1166.0
+        Columbus   CONTROL        1               business-as-usual spend     MW            0.79        50399.0           1503.0
+     Kansas City   CONTROL        1               business-as-usual spend     MW            0.78        41129.0           1254.0
+       Milwaukee   CONTROL        1               business-as-usual spend     MW            0.77        37531.0           1130.0
+     Minneapolis   CONTROL        1               business-as-usual spend     MW            0.81        79359.0           2426.0
+         Phoenix   CONTROL        1               business-as-usual spend     WE            0.84       101864.0           3140.0
+      Pittsburgh   CONTROL        1               business-as-usual spend     NE            0.80        57861.0           1769.0
+     Portland ME   CONTROL        1               business-as-usual spend     NE            0.84        23877.0            723.0
+      Sacramento   CONTROL        1               business-as-usual spend     WE            0.80        39380.0           1171.0
+       San Diego   CONTROL        1               business-as-usual spend     WE            0.90       117830.0           3564.0
+         Seattle   CONTROL        1               business-as-usual spend     WE            0.86       103695.0           3166.0
+       St. Louis   CONTROL        1               business-as-usual spend     MW            0.78        52828.0           1620.0
+         Atlanta   CONTROL        2               business-as-usual spend     SE            0.87       134083.0           4019.0
+          Dallas   CONTROL        2               business-as-usual spend     TX            0.85       163500.0           4985.0
+           Tampa   CONTROL        2               business-as-usual spend     FL            0.89       132907.0           4025.0
+          Boston   CONTROL        3               business-as-usual spend     NE            0.88       149976.0           4583.0
+    Philadelphia   CONTROL        3               business-as-usual spend     NE            0.86       138576.0           4216.0
+   Washington DC   CONTROL        3               business-as-usual spend     NE            0.89       156244.0           4710.0
+          Fresno  EXCLUDED       -1 data-quality (spend>0, zero bookings)     WE            0.76            0.0            728.0
+        Honolulu  EXCLUDED       -1                        occupancy>=95%     WE            0.96       155523.0           4815.0
+       Las Vegas  EXCLUDED       -1               flagship;occupancy>=95%     WE            0.95       235414.0           7119.0
+     Los Angeles  EXCLUDED       -1                              flagship     WE            0.89       338749.0          10235.0
+           Miami  EXCLUDED       -1                        occupancy>=95%     FL            0.96       262429.0           7869.0
+    Myrtle Beach  EXCLUDED       -1                        occupancy>=95%     SE            0.96        27569.0            818.0
+        New York  EXCLUDED       -1                              flagship     NE            0.93       547217.0          16774.0
+         Orlando  EXCLUDED       -1               flagship;occupancy>=95%     FL            0.97       363362.0          11080.0
+    Palm Springs  EXCLUDED       -1                            renovation     WE            0.88        25906.0            779.0
+        Savannah  EXCLUDED       -1                            renovation     SE            0.90        25187.0            776.0
+           Boise TREATMENT        0      heavy-up +75% paid search+social     MT            0.80        22758.0            702.0
+    Indianapolis TREATMENT        0      heavy-up +75% paid search+social     MW            0.78        47038.0           1392.0
+    Jacksonville TREATMENT        0      heavy-up +75% paid search+social     FL            0.84        57872.0           1744.0
+     New Orleans TREATMENT        0      heavy-up +75% paid search+social     TX            0.88        76850.0           2303.0
+         Raleigh TREATMENT        0      heavy-up +75% paid search+social     SE            0.83        72601.0           2211.0
+        Richmond TREATMENT        0      heavy-up +75% paid search+social     SE            0.81        46140.0           1397.0
+ West Palm Beach TREATMENT        0      heavy-up +75% paid search+social     FL            0.88        65826.0           2021.0
+         Detroit TREATMENT        1      heavy-up +75% paid search+social     MW            0.78        72805.0           2193.0
+        Hartford TREATMENT        1      heavy-up +75% paid search+social     NE            0.78        44713.0           1339.0
+      Providence TREATMENT        1      heavy-up +75% paid search+social     NE            0.79        42327.0           1288.0
+         Houston TREATMENT        2      heavy-up +75% paid search+social     TX            0.83       133801.0           4102.0
+   San Francisco TREATMENT        2      heavy-up +75% paid search+social     WE            0.88       181198.0           5384.0
+         Chicago TREATMENT        3      heavy-up +75% paid search+social     MW            0.86       215099.0           6510.0
+
+group sizes: {'CONTROL': 37, 'TREATMENT': 13, 'EXCLUDED': 10}
+            n  avg_daily_rev  avg_daily_spend
+group                                        
+CONTROL    37      2557283.0          77650.0
+EXCLUDED   10      1981358.0          60993.0
+TREATMENT  13      1079026.0          32586.0
+
+treatment-by-stratum balance:
+group    CONTROL  TREATMENT
+stratum                    
+0             17          7
+1             14          3
+2              3          2
+3              3          1
+
+====================================================================================================
+VERIFICATION
+====================================================================================================
+[PASS] no overlap treatment/control
+[PASS] operational exclusions respected
+[PASS] broken-tracking geo excluded
+[PASS] A/A p-value >= alpha
+[PASS] treatment share of revenue <= 30%
+[PASS] design JSON round-trip
+[PASS] MDE plausible (0.5%-5% of treatment revenue)
+[PASS] min detectable iROAS < planning iROAS (2.0)

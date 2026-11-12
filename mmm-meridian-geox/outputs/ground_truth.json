@@ -1,0 +1,31 @@
+{
+  "true_iroas_parameter": 2.0,
+  "realised_iroas_lifetime": 1.9912912894487436,
+  "realised_iroas_test_window_only": 1.6343613787895335,
+  "realised_iroas_test_plus_7d": 1.9450986916612636,
+  "incremental_revenue_cooldown_first7d": 204080.80906227554,
+  "incremental_spend": 656763.126308293,
+  "incremental_revenue_test_window": 1073388.2886513462,
+  "incremental_revenue_cooldown": 234418.40399748256,
+  "share_of_effect_after_test_end": 0.17924545371662845,
+  "treatment_geos": [
+    "Boise",
+    "Chicago",
+    "Detroit",
+    "Hartford",
+    "Houston",
+    "Indianapolis",
+    "Jacksonville",
+    "New Orleans",
+    "Providence",
+    "Raleigh",
+    "Richmond",
+    "San Francisco",
+    "West Palm Beach"
+  ],
+  "test_start": "2026-07-11",
+  "test_end": "2026-08-07",
+  "cooldown_end": "2026-08-21",
+  "planned_heavy_up_pct": 0.75,
+  "delivery_factor": 0.93
+}

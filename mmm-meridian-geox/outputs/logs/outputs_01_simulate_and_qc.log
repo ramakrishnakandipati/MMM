@@ -1,0 +1,98 @@
+[WARNING] Entries have duplicate dates per geo exceeding 0. Identified duplicated entries will be aggregated.
+[WARNING] Found geos with spend > 0 and no response. Those outlier geos will be removed from design and analysis.
+[WARNING] Found outlier pretest dates. Those outlier dates will be removed from design or analysis.
+[WARNING] Found geos with spend > 0 and no response. Those outlier geos will be removed from design and analysis.
+[WARNING] Found outlier pretest dates. Those outlier dates will be removed from design or analysis.
+
+====================================================================================================
+1. SYNTHETIC PRE-TEST PANEL (clean, before fault injection)
+====================================================================================================
+rows=10,800  DMAs=60  days=180  2026-01-12 -> 2026-07-10
+avg total booking revenue by weekday (Mon..Sun, index 100 = mean):
+date
+0    112.2
+1    107.5
+2    103.6
+3     97.7
+4     92.7
+5     83.8
+6    102.4
+
+revenue by region ($k/day):
+region
+FL     956.0
+MT     222.0
+MW     650.0
+NE    1303.0
+SE     600.0
+TX     530.0
+WE    1415.0
+
+====================================================================================================
+2. INJECTED FAULTS (ground truth for the QC demo)
+====================================================================================================
+{
+  "outage_dates": [
+    "2026-04-17",
+    "2026-04-18"
+  ],
+  "event_spikes": {
+    "Austin": "2026-03-15 +4d x1.9",
+    "Nashville": "2026-05-12 +3d x1.7"
+  },
+  "zero_response_geo": "Fresno",
+  "missing_dates": [
+    "2026-02-21",
+    "2026-02-22"
+  ],
+  "duplicate_rows": 25
+}
+
+====================================================================================================
+3. meridian_geox.check_design_data_quality  (DIRTY data)
+====================================================================================================
+                      metric  value                                                                                                 message
+           Duplicate Entries     25     Entries have duplicate dates per geo exceeding 0. Identified duplicated entries will be aggregated.
+Spend > 0 and no conversions      1 Found geos with spend > 0 and no response. Those outlier geos will be removed from design and analysis.
+       Outlier pretest dates      2               Found outlier pretest dates. Those outlier dates will be removed from design or analysis.
+
+outlier_geos : ['Fresno']
+outlier_dates: ['2026-04-17', '2026-04-18']
+
+====================================================================================================
+4. EXTRA CHECK - per-DMA event spikes (not covered by geox's aggregate-level check)
+====================================================================================================
+                   first       last  days
+location                                 
+Austin        2026-03-15 2026-03-18     4
+Miami         2026-04-16 2026-04-16     1
+Nashville     2026-05-12 2026-05-14     3
+St. Louis     2026-03-22 2026-03-22     1
+Washington DC 2026-04-19 2026-04-19     1
+
+====================================================================================================
+5. meridian_geox.check_design_data_quality  (CLEANED data)
+====================================================================================================
+                      metric  value                                                                                                 message
+Spend > 0 and no conversions      1 Found geos with spend > 0 and no response. Those outlier geos will be removed from design and analysis.
+       Outlier pretest dates      2               Found outlier pretest dates. Those outlier dates will be removed from design or analysis.
+outlier_geos : ['Fresno']  -> auto-excluded from design & analysis by geox
+outlier_dates: ['2026-04-17', '2026-04-18']  -> auto-excluded by geox
+
+====================================================================================================
+CLEANING LOG
+====================================================================================================
+                                     action  count
+                     duplicate rows removed     25
+missing geo-days imputed (same-weekday avg)    141
+            local-event geo-days winsorised     10
+
+====================================================================================================
+VERIFICATION
+====================================================================================================
+[PASS] duplicates flagged by geox
+[PASS] broken-tracking geo flagged
+[PASS] outage date(s) flagged
+[PASS] event spikes flagged (extra check)
+[PASS] no residual duplicates
+[PASS] grid complete (no NaN)

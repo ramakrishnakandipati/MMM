@@ -1,0 +1,184 @@
+E1112 16:18:24.476167   11196 cuda_executor.cc:1439] [0] Failed to allocate device memory of 18.00GiB (19327352832 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:18:24.477565   11196 cuda_executor.cc:1439] [0] Failed to allocate device memory of 16.20GiB (17394616320 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:18:24.483417   11196 cuda_executor.cc:1439] [0] Failed to allocate device memory of 14.58GiB (15655154688 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:18:24.484066   11196 cuda_executor.cc:1439] [0] Failed to allocate device memory of 13.12GiB (14089638912 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:18:24.484583   11196 cuda_executor.cc:1439] [0] Failed to allocate device memory of 11.81GiB (12680674304 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:18:24.484999   11196 cuda_executor.cc:1439] [0] Failed to allocate device memory of 10.63GiB (11412606976 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:18:24.485376   11196 cuda_executor.cc:1439] [0] Failed to allocate device memory of 9.57GiB (10271345664 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:18:24.485787   11196 cuda_executor.cc:1439] [0] Failed to allocate device memory of 8.61GiB (9244211200 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:18:24.486181   11196 cuda_executor.cc:1439] [0] Failed to allocate device memory of 7.75GiB (8319790080 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:18:24.486719   11196 cuda_executor.cc:1439] [0] Failed to allocate device memory of 6.97GiB (7487811072 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:18:24.487099   11196 cuda_executor.cc:1439] [0] Failed to allocate device memory of 6.28GiB (6739030016 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:18:24.487496   11196 cuda_executor.cc:1439] [0] Failed to allocate device memory of 5.65GiB (6065126912 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:18:24.488708   11196 cuda_executor.cc:1439] [0] Failed to allocate device memory of 5.08GiB (5458614272 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:18:24.490051   11196 cuda_executor.cc:1439] [0] Failed to allocate device memory of 4.58GiB (4912752640 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 16:18:24.490716   11196 cuda_executor.cc:1439] [0] Failed to allocate device memory of 4.12GiB (4421477376 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+[WARNING] Found outlier pretest dates. Those outlier dates will be removed from design or analysis.
+[WARNING] Found outlier pretest dates. Those outlier dates will be removed from design or analysis.
+[WARNING] Found outlier pretest dates. Those outlier dates will be removed from design or analysis.
+[WARNING] Found outlier pretest dates. Those outlier dates will be removed from design or analysis.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794518383.635513   11196 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794518384.477556   11196 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+
+====================================================================================================
+A0. geox analysis-phase data-quality check
+====================================================================================================
+               metric  value
+Outlier pretest dates      2
+auto-excluded dates: ['2026-04-17', '2026-04-18']
+
+====================================================================================================
+A1. geox.analyze() - TBR, design-aware placebo inference (alpha=0.10 => 90% intervals)
+====================================================================================================
+[test] lift $1,280,650  90% CI [382,438, 2,083,622]  p=0.0020 | %lift 4.05% [1.01%, 6.77%] | iROAS 1.941 [0.580, 3.157] sd=0.809
+[test+7d] lift $1,313,536  90% CI [112,591, 2,401,309]  p=0.0659 | %lift 3.33% [0.14%, 6.30%] | iROAS 2.004 [0.172, 3.664] sd=1.093
+[test+14d] lift $1,408,118  90% CI [-175,618, 2,623,745]  p=0.2335 | %lift 3.00% [-0.56%, 5.75%] | iROAS 2.130 [-0.266, 3.968] sd=1.349
+geox auto-excluded geos : ['Fresno', 'Honolulu', 'Las Vegas', 'Los Angeles', 'Miami', 'Myrtle Beach', 'New York', 'Orlando', 'Palm Springs', 'Savannah']
+geox auto-excluded dates: ['2026-04-17', '2026-04-18']
+
+[timing] one SC+SDID pass over both windows: 0.5s
+
+holdout R^2 - real treatment group: 0.882 | all 500 placebo draws: median 0.795 | kept top 150: min 0.823, median 0.845
+[timing] total incl. 500 draws / 150 kept placebos: 62.8s
+
+====================================================================================================
+B0. PLACEBO NULL DISTRIBUTIONS (true effect = 0 by construction) vs. observed effect, $ revenue over window
+====================================================================================================
+       method   window  placebo_mean  placebo_median  placebo_sd        p05      p95  observed  observed_z
+  SC (custom)     test       10746.0        -18814.0    331971.0  -493993.0 601582.0 1312782.0         4.0
+SDID (custom)     test       -9093.0         25671.0    346371.0  -596509.0 526224.0 1333938.0         4.0
+  SC (custom) test+14d       34920.0         10981.0    479527.0  -681866.0 994361.0 1487166.0         3.0
+SDID (custom) test+14d     -142380.0       -183913.0    530965.0 -1025008.0 659638.0 1346631.0         3.0
+
+====================================================================================================
+B. ESTIMATOR COMPARISON (90% intervals; truth = what the simulator actually delivered in that window)
+====================================================================================================
+       method   window  lift_usd  lift_lo  lift_hi  p_value  incr_spend  iROAS  iROAS_lo  iROAS_hi  true_iROAS  covers_truth
+     geox TBR     test   1280650   382438  2083622   0.0020      659936  1.941     0.580     3.157       1.634          True
+     geox TBR  test+7d   1313536   112591  2401309   0.0659      655357  2.004     0.172     3.664       1.945          True
+     geox TBR test+14d   1408118  -175618  2623745   0.2335      661148  2.130    -0.266     3.968       1.991          True
+  SC (custom)     test   1312782   711200  1806775   0.0066      647314  2.028     1.099     2.791       1.634          True
+SDID (custom)     test   1333938   807714  1930447   0.0066      646961  2.062     1.248     2.984       1.634          True
+  SC (custom) test+14d   1487166   492805  2169031   0.0066      640061  2.323     0.770     3.389       1.991          True
+SDID (custom) test+14d   1346631   686993  2371639   0.0331      641565  2.099     1.071     3.697       1.991          True
+
+bias vs truth (%):
+window         test  test+14d  test+7d
+method                                
+SC (custom)    24.1      16.7      NaN
+SDID (custom)  26.2       5.4      NaN
+geox TBR       18.7       7.0      3.0
+
+====================================================================================================
+C. MERIDIAN MMM CALIBRATION - iROAS to roi_m LogNormal prior
+====================================================================================================
+PRIMARY experiment read (pre-specified: test + full 14d cooldown, unbiased for the lag):
+  iROAS 2.130  90% CI [-0.266, 3.968]  sd=1.349
+                                     prior         method      mu  sigma   mean    p05    p50    p95  P(prior>truth)
+             primary test+14d, as measured moment-matched  0.5873 0.5808 2.1298 0.6921 1.7992 4.6774          0.4307
+primary test+14d x1.25 sigma (RECOMMENDED) moment-matched  0.5873 0.7261 2.3418 0.5450 1.7992 5.9394          0.4444
+                 sensitivity: test+7d read  range-matched -0.2314 0.9302 1.2229 0.1718 0.7934 3.6641          0.1613
+
+PriorDistribution(roi_m=LogNormal(mu=0.5873, sigma=0.7261)) built; ModelSpec ok: ModelSpec
+
+--- paste into your Meridian pipeline ---
+import tensorflow_probability as tfp
+from meridian.model import prior_distribution, spec
+prior = prior_distribution.PriorDistribution(
+    roi_m=tfp.distributions.LogNormal(0.5873, 0.7261))   # paid search + paid social
+model_spec = spec.ModelSpec(prior=prior)   # media_prior_type='roi' (default)
+# optional: restrict the prior to the test weeks via ModelSpec(roi_calibration=...) (CalibrationSpec)
+
+====================================================================================================
+VERIFICATION
+====================================================================================================
+[PASS] geox TBR detects the effect in the powered window (test, p<0.10)
+[PASS] geox TBR 90% CI covers ground truth: test window
+[PASS] geox TBR 90% CI covers ground truth: test+14d
+[PASS] geox TBR lag effect visible: test-only truth < lifetime truth
+[PASS] geox TBR test+14d iROAS within 35% of lifetime truth
+[PASS] geox TBR CI ordered & finite
+[PASS] custom SC/SDID: placebo nulls centred (|mean| < 0.5 sd)
+[PASS] custom SC/SDID: every CI contains its own point estimate
+[PASS] prior reproduces experiment estimate (moment-matched)
+[PASS] PriorDistribution / ModelSpec constructed
+[INFO] 90% intervals covering the window-specific ground truth: 7/7 (a single simulated test cannot validate calibration - expect ~1 miss in 10 over many tests)
+[INFO] p-values (test window): geox TBR=0.002, SC (custom)=0.007, SDID (custom)=0.007
+[INFO] p-values (test+14d)   : geox TBR=0.234, SC (custom)=0.007, SDID (custom)=0.033
