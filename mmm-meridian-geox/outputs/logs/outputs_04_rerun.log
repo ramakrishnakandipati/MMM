@@ -1,88 +1,88 @@
-E1112 17:47:06.669990   13579 cuda_executor.cc:1439] [0] Failed to allocate device memory of 18.00GiB (19327352832 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+E1112 17:59:52.350588   15603 cuda_executor.cc:1439] [0] Failed to allocate device memory of 18.00GiB (19327352832 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
 === Source Location Trace: ===
 external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
 
-E1112 17:47:06.670636   13579 cuda_executor.cc:1439] [0] Failed to allocate device memory of 16.20GiB (17394616320 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+E1112 17:59:52.361893   15603 cuda_executor.cc:1439] [0] Failed to allocate device memory of 16.20GiB (17394616320 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
 === Source Location Trace: ===
 external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
 
-E1112 17:47:06.675639   13579 cuda_executor.cc:1439] [0] Failed to allocate device memory of 14.58GiB (15655154688 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+E1112 17:59:52.366112   15603 cuda_executor.cc:1439] [0] Failed to allocate device memory of 14.58GiB (15655154688 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
 === Source Location Trace: ===
 external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
 
-E1112 17:47:06.676715   13579 cuda_executor.cc:1439] [0] Failed to allocate device memory of 13.12GiB (14089638912 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+E1112 17:59:52.379583   15603 cuda_executor.cc:1439] [0] Failed to allocate device memory of 13.12GiB (14089638912 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
 === Source Location Trace: ===
 external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
 
-E1112 17:47:06.677374   13579 cuda_executor.cc:1439] [0] Failed to allocate device memory of 11.81GiB (12680674304 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+E1112 17:59:52.393902   15603 cuda_executor.cc:1439] [0] Failed to allocate device memory of 11.81GiB (12680674304 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
 === Source Location Trace: ===
 external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
 
-E1112 17:47:06.677911   13579 cuda_executor.cc:1439] [0] Failed to allocate device memory of 10.63GiB (11412606976 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+E1112 17:59:52.407669   15603 cuda_executor.cc:1439] [0] Failed to allocate device memory of 10.63GiB (11412606976 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
 === Source Location Trace: ===
 external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
 
-E1112 17:47:06.678461   13579 cuda_executor.cc:1439] [0] Failed to allocate device memory of 9.57GiB (10271345664 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+E1112 17:59:52.424152   15603 cuda_executor.cc:1439] [0] Failed to allocate device memory of 9.57GiB (10271345664 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
 === Source Location Trace: ===
 external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
 
-E1112 17:47:06.678986   13579 cuda_executor.cc:1439] [0] Failed to allocate device memory of 8.61GiB (9244211200 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+E1112 17:59:52.427078   15603 cuda_executor.cc:1439] [0] Failed to allocate device memory of 8.61GiB (9244211200 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
 === Source Location Trace: ===
 external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
 
-E1112 17:47:06.679517   13579 cuda_executor.cc:1439] [0] Failed to allocate device memory of 7.75GiB (8319790080 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+E1112 17:59:52.431287   15603 cuda_executor.cc:1439] [0] Failed to allocate device memory of 7.75GiB (8319790080 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
 === Source Location Trace: ===
 external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
 
-E1112 17:47:06.680028   13579 cuda_executor.cc:1439] [0] Failed to allocate device memory of 6.97GiB (7487811072 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+E1112 17:59:52.432291   15603 cuda_executor.cc:1439] [0] Failed to allocate device memory of 6.97GiB (7487811072 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
 === Source Location Trace: ===
 external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
 
-E1112 17:47:06.680558   13579 cuda_executor.cc:1439] [0] Failed to allocate device memory of 6.28GiB (6739030016 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+E1112 17:59:52.433236   15603 cuda_executor.cc:1439] [0] Failed to allocate device memory of 6.28GiB (6739030016 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
 === Source Location Trace: ===
 external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
 
-E1112 17:47:06.681084   13579 cuda_executor.cc:1439] [0] Failed to allocate device memory of 5.65GiB (6065126912 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+E1112 17:59:52.434240   15603 cuda_executor.cc:1439] [0] Failed to allocate device memory of 5.65GiB (6065126912 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
 === Source Location Trace: ===
 external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
 
-E1112 17:47:06.681604   13579 cuda_executor.cc:1439] [0] Failed to allocate device memory of 5.08GiB (5458614272 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+E1112 17:59:52.435130   15603 cuda_executor.cc:1439] [0] Failed to allocate device memory of 5.08GiB (5458614272 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
 === Source Location Trace: ===
 external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
 
-E1112 17:47:06.682108   13579 cuda_executor.cc:1439] [0] Failed to allocate device memory of 4.58GiB (4912752640 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+E1112 17:59:52.436100   15603 cuda_executor.cc:1439] [0] Failed to allocate device memory of 4.58GiB (4912752640 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
 === Source Location Trace: ===
 external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
 
-E1112 17:47:06.682629   13579 cuda_executor.cc:1439] [0] Failed to allocate device memory of 4.12GiB (4421477376 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+E1112 17:59:52.437065   15603 cuda_executor.cc:1439] [0] Failed to allocate device memory of 4.12GiB (4421477376 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
 === Source Location Trace: ===
 external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
 external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
@@ -93,9 +93,9 @@ external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
 [WARNING] Found outlier pretest dates. Those outlier dates will be removed from design or analysis.
 [WARNING] Found outlier pretest dates. Those outlier dates will be removed from design or analysis.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1794523714.392443   13579 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1794524480.405084   15603 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1794523719.551397   13579 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1794524481.343236   15603 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
 
 ====================================================================================================
 A0. geox analysis-phase data-quality check
@@ -107,16 +107,16 @@ auto-excluded dates: ['2026-04-17', '2026-04-18']
 ====================================================================================================
 A1. geox.analyze() - TBR, design-aware placebo inference (alpha=0.10 => 90% intervals)
 ====================================================================================================
-[test] lift $1,280,650  90% CI [382,438, 2,083,616]  p=0.0020 | %lift 4.05% [1.01%, 6.77%] | iROAS 1.941 [0.580, 3.157] sd=0.809
-[test+7d] lift $1,313,536  90% CI [112,592, 2,401,314]  p=0.0659 | %lift 3.33% [0.14%, 6.30%] | iROAS 2.004 [0.172, 3.664] sd=1.093
-[test+14d] lift $1,408,118  90% CI [-175,617, 2,623,745]  p=0.2335 | %lift 3.00% [-0.56%, 5.75%] | iROAS 2.130 [-0.266, 3.968] sd=1.349
+[test] lift $1,280,650  90% CI [382,437, 2,083,617]  p=0.0020 | %lift 4.05% [1.01%, 6.77%] | iROAS 1.941 [0.580, 3.157] sd=0.809
+[test+7d] lift $1,313,536  90% CI [112,590, 2,401,316]  p=0.0659 | %lift 3.33% [0.14%, 6.30%] | iROAS 2.004 [0.172, 3.664] sd=1.093
+[test+14d] lift $1,408,118  90% CI [-175,619, 2,623,746]  p=0.2335 | %lift 3.00% [-0.56%, 5.75%] | iROAS 2.130 [-0.266, 3.968] sd=1.349
 geox auto-excluded geos : ['Fresno', 'Honolulu', 'Las Vegas', 'Los Angeles', 'Miami', 'Myrtle Beach', 'New York', 'Orlando', 'Palm Springs', 'Savannah']
 geox auto-excluded dates: ['2026-04-17', '2026-04-18']
 
-[timing] one SC+SDID pass over both windows: 0.6s
+[timing] one SC+SDID pass over both windows: 1.1s
 
 holdout R^2 - real treatment group: 0.882 | all 500 placebo draws: median 0.795 | kept top 150: min 0.823, median 0.845
-[timing] total incl. 500 draws / 150 kept placebos: 67.0s
+[timing] total incl. 500 draws / 150 kept placebos: 68.9s
 
 ====================================================================================================
 B0. PLACEBO NULL DISTRIBUTIONS (true effect = 0 by construction) vs. observed effect, $ revenue over window
@@ -131,9 +131,9 @@ SDID (custom) test+14d     -142380.0       -183913.0    530965.0 -1025008.0 6596
 B. ESTIMATOR COMPARISON (90% intervals; truth = what the simulator actually delivered in that window)
 ====================================================================================================
        method   window  lift_usd  lift_lo  lift_hi  p_value  incr_spend  iROAS  iROAS_lo  iROAS_hi  true_iROAS  covers_truth
-     geox TBR     test   1280650   382438  2083616   0.0020      659936  1.941     0.580     3.157       1.634          True
-     geox TBR  test+7d   1313536   112592  2401314   0.0659      655357  2.004     0.172     3.664       1.945          True
-     geox TBR test+14d   1408118  -175617  2623745   0.2335      661148  2.130    -0.266     3.968       1.991          True
+     geox TBR     test   1280650   382437  2083617   0.0020      659936  1.941     0.580     3.157       1.634          True
+     geox TBR  test+7d   1313536   112590  2401316   0.0659      655357  2.004     0.172     3.664       1.945          True
+     geox TBR test+14d   1408118  -175619  2623746   0.2335      661148  2.130    -0.266     3.968       1.991          True
   SC (custom)     test   1312782   711200  1806775   0.0066      647314  2.028     1.099     2.791       1.634          True
 SDID (custom)     test   1333938   807714  1930447   0.0066      646961  2.062     1.248     2.984       1.634          True
   SC (custom) test+14d   1487166   492805  2169031   0.0066      640061  2.323     0.770     3.389       1.991          True
