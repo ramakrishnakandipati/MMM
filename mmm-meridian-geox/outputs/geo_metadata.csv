@@ -1,0 +1,61 @@
+location,region,avg_daily_rev_k,peak_occupancy,renovation,flagship
+New York,NE,520,0.93,0,True
+Boston,NE,150,0.88,0,False
+Philadelphia,NE,140,0.86,0,False
+Washington DC,NE,160,0.89,0,False
+Pittsburgh,NE,55,0.8,0,False
+Hartford,NE,45,0.78,0,False
+Albany,NE,35,0.76,0,False
+Buffalo,NE,38,0.77,0,False
+Portland ME,NE,22,0.84,0,False
+Providence,NE,40,0.79,0,False
+Baltimore,NE,60,0.82,0,False
+Atlanta,SE,130,0.87,0,False
+Charlotte,SE,70,0.84,0,False
+Raleigh,SE,65,0.83,0,False
+Nashville,SE,75,0.9,0,False
+Charleston SC,SE,30,0.91,0,False
+Savannah,SE,24,0.9,1,False
+Myrtle Beach,SE,28,0.96,0,False
+Memphis,SE,35,0.78,0,False
+Birmingham,SE,38,0.79,0,False
+Asheville,SE,20,0.88,0,False
+Richmond,SE,42,0.81,0,False
+Orlando,FL,300,0.97,0,True
+Miami,FL,240,0.96,0,False
+Tampa,FL,110,0.89,0,False
+Jacksonville,FL,55,0.84,0,False
+Fort Myers,FL,40,0.9,0,False
+West Palm Beach,FL,60,0.88,0,False
+Pensacola,FL,22,0.85,0,False
+Chicago,MW,210,0.86,0,False
+Detroit,MW,70,0.78,0,False
+Minneapolis,MW,80,0.81,0,False
+Cleveland,MW,50,0.77,0,False
+Columbus,MW,46,0.79,0,False
+Indianapolis,MW,44,0.78,0,False
+St. Louis,MW,52,0.78,0,False
+Milwaukee,MW,34,0.77,0,False
+Kansas City,MW,40,0.78,0,False
+Dallas,TX,150,0.85,0,False
+Houston,TX,130,0.83,0,False
+Austin,TX,85,0.87,0,False
+San Antonio,TX,60,0.84,0,False
+New Orleans,TX,70,0.88,0,False
+Los Angeles,WE,330,0.89,0,True
+San Diego,WE,120,0.9,0,False
+San Francisco,WE,180,0.88,0,False
+Seattle,WE,110,0.86,0,False
+Portland OR,WE,60,0.82,0,False
+Phoenix,WE,100,0.84,0,False
+Sacramento,WE,40,0.8,0,False
+Honolulu,WE,160,0.96,0,False
+Las Vegas,WE,250,0.95,0,True
+Palm Springs,WE,26,0.88,1,False
+Santa Barbara,WE,18,0.87,0,False
+Fresno,WE,24,0.76,0,False
+Denver,MT,95,0.85,0,False
+Salt Lake City,MT,50,0.82,0,False
+Boise,MT,22,0.8,0,False
+Albuquerque,MT,28,0.79,0,False
+Colorado Springs,MT,18,0.81,0,False
