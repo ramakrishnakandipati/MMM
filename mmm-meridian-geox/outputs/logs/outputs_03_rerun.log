@@ -1,0 +1,133 @@
+E1112 17:47:04.256009   13397 cuda_executor.cc:1439] [0] Failed to allocate device memory of 18.00GiB (19327352832 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 17:47:04.256630   13397 cuda_executor.cc:1439] [0] Failed to allocate device memory of 16.20GiB (17394616320 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 17:47:04.261371   13397 cuda_executor.cc:1439] [0] Failed to allocate device memory of 14.58GiB (15655154688 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 17:47:04.266570   13397 cuda_executor.cc:1439] [0] Failed to allocate device memory of 13.12GiB (14089638912 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 17:47:04.272361   13397 cuda_executor.cc:1439] [0] Failed to allocate device memory of 11.81GiB (12680674304 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 17:47:04.273931   13397 cuda_executor.cc:1439] [0] Failed to allocate device memory of 10.63GiB (11412606976 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 17:47:04.276008   13397 cuda_executor.cc:1439] [0] Failed to allocate device memory of 9.57GiB (10271345664 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 17:47:04.278307   13397 cuda_executor.cc:1439] [0] Failed to allocate device memory of 8.61GiB (9244211200 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 17:47:04.280283   13397 cuda_executor.cc:1439] [0] Failed to allocate device memory of 7.75GiB (8319790080 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 17:47:04.281766   13397 cuda_executor.cc:1439] [0] Failed to allocate device memory of 6.97GiB (7487811072 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 17:47:04.283148   13397 cuda_executor.cc:1439] [0] Failed to allocate device memory of 6.28GiB (6739030016 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 17:47:04.285413   13397 cuda_executor.cc:1439] [0] Failed to allocate device memory of 5.65GiB (6065126912 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 17:47:04.286862   13397 cuda_executor.cc:1439] [0] Failed to allocate device memory of 5.08GiB (5458614272 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 17:47:04.288451   13397 cuda_executor.cc:1439] [0] Failed to allocate device memory of 4.58GiB (4912752640 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+E1112 17:47:04.289864   13397 cuda_executor.cc:1439] [0] Failed to allocate device memory of 4.12GiB (4421477376 bytes): RESOURCE_EXHAUSTED: : CUDA_ERROR_OUT_OF_MEMORY: out of memory
+=== Source Location Trace: ===
+external/xla+/xla/stream_executor/cuda/cuda_status.cc:45
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:242
+external/xla+/xla/stream_executor/cuda/cuda_device_allocator.cc:510
+
+sanity: cleaned pre-test vs regenerated baseline  median ratio=1.0000 (1.0 expected; deviations = injected faults / repairs)
+
+====================================================================================================
+STAGE 3 - SIMULATED POST-TEST DATA
+====================================================================================================
+window rows: 13,320  | 2026-01-12 -> 2026-08-21
+test     : 2026-07-11 -> 2026-08-07 (28d, Sat-Fri, no US holidays)
+cooldown : 2026-08-08 -> 2026-08-21 (14d, no extra spend, bookings still landing)
+treatment DMAs (13): Boise, Chicago, Detroit, Hartford, Houston, Indianapolis, Jacksonville, New Orleans, Providence, Raleigh, Richmond, San Francisco, West Palm Beach
+true_iroas_parameter                               2.0
+realised_iroas_lifetime                       1.991291
+realised_iroas_test_window_only               1.634361
+realised_iroas_test_plus_7d                   1.945099
+incremental_revenue_cooldown_first7d     204080.809062
+incremental_spend                        656763.126308
+incremental_revenue_test_window         1073388.288651
+incremental_revenue_cooldown             234418.403997
+share_of_effect_after_test_end                0.179245
+test_start                                  2026-07-11
+test_end                                    2026-08-07
+cooldown_end                                2026-08-21
+planned_heavy_up_pct                              0.75
+delivery_factor                                   0.93
+
+true incremental revenue per week since test start ($):
+week_since_test_start
+0    119620.0
+1    286511.0
+2    335360.0
+3    331897.0
+4    204081.0
+5     30338.0
+
+====================================================================================================
+VERIFICATION
+====================================================================================================
+[PASS] lifetime iROAS == parameter (±3%)
+[PASS] all lagged bookings land inside cooldown (nothing after day 14)
+[PASS] test-window read under-states effect (lag)
+[PASS] share after test end in 10-30%
+[PASS] control & excluded geos untouched
+[PASS] no extra spend outside the test window
+[PASS] geo set matches design
