@@ -174,7 +174,8 @@ def main(args: argparse.Namespace) -> None:
     # 2. fit ---------------------------------------------------------------------
     mmm = build_model(df)   # fresh instance: the prior-predictive build used the data once already
     sk = dict(draws=300, tune=300, chains=2) if args.quick else \
-        dict(draws=1500, tune=1500, chains=4, target_accept=0.95, nuts_sampler="numpyro")
+        dict(draws=1500, tune=1500, chains=4, target_accept=0.95, nuts_sampler="numpyro",
+                    nuts_sampler_kwargs={"chain_method": "vectorized"})
     mmm.fit(X, y, random_seed=42, **sk)
     idata = mmm.idata
 
