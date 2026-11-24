@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 
 from src.agent.graph import AgentService  # noqa: E402
+from src.agent.scenarios import SCENARIOS, run_all_scenarios  # noqa: E402
 from src.utils import visualizer as viz  # noqa: E402
 from src.utils.config import out_dir  # noqa: E402
 from src.utils.logger import log_event, reset_logs  # noqa: E402
@@ -91,7 +92,7 @@ def capture_uis() -> dict:
                     print(f"  flask capture failed: {type(e).__name__}: {e}")
             if st_ok:
                 try:
-                    pg = br.new_page(viewport={"width": 1400, "height": 1100})
+                    pg = br.new_page(viewport={"width": 1400, "height": 2600})
                     pg.goto(f"http://127.0.0.1:{sport}/")
                     pg.get_by_role("button", name="Run live cycle").wait_for(timeout=60000)
                     pg.get_by_role("button", name="Run live cycle").click()
@@ -111,6 +112,18 @@ def capture_uis() -> dict:
                     pg.get_by_role("tab", name="GPU Metrics").click()
                     time.sleep(2)
                     pg.screenshot(path=str(shot_dir / "streamlit_04_gpu.png"), full_page=True)
+                    # ---- Scenario Studio: run all examples, capture overview + one end-to-end flow per scenario
+                    pg.get_by_role("tab", name="Scenario Studio").click()
+                    pg.locator("button", has_text="Run ALL scenarios").click()
+                    pg.get_by_text("All scenarios compared").wait_for(timeout=180000)
+                    time.sleep(3)
+                    pg.screenshot(path=str(shot_dir / "scenario_00_overview.png"), full_page=True)
+                    for i, sc in enumerate(SCENARIOS, start=1):
+                        pg.locator("label", has_text=sc["label"]).first.click()
+                        pg.get_by_role("heading", name="Flow: " + sc["label"]).wait_for(timeout=60000)
+                        time.sleep(2.5)
+                        pg.screenshot(path=str(shot_dir / f"scenario_{i:02d}_{sc['id']}.png"), full_page=True)
+                    shots["scenarios"] = len(SCENARIOS)
                     shots["streamlit"] = True
                     pg.close()
                 except Exception as e:  # noqa: BLE001
@@ -163,6 +176,18 @@ def main() -> int:
     if st.get("diagnosis"):
         print(f"  LLM diagnose source={st['diagnosis']['meta']['source']}  visual source={st['visual']['meta']['source']} "
               f"verdict={st['visual']['verdict']}  HITL={st['hitl']['status']}")
+
+    banner("End-to-end scenarios (6 examples through the same 6-step flow)")
+    from src.utils import visualizer as _v
+    sc_res = run_all_scenarios(ctx)
+    for r in sc_res.values():
+        _v.scenario_chart(r)
+        if r["halted"]:
+            print(f"  {r['label']:<40} HALTED  {r['halt_reason']}")
+        else:
+            rp = r["replay"]
+            print(f"  {r['label']:<40} discount {r['plan']['discount']:>4.0%}  lift vs static {rp['lift_vs_static_pct']:+6.1f}%  "
+                  f"vs heuristic {rp['lift_vs_heuristic_pct']:+6.1f}%  HITL={r['hitl']['status']}")
 
     banner("Visualisations")
     statuses = {int(k): ("pass" if v["passed"] else "fail") for k, v in st["gates"].items()}

@@ -126,3 +126,51 @@ def flow_diagram(statuses: dict | None = None) -> list[str]:
     fig.savefig(p2, bbox_inches="tight")
     plt.close(fig)
     return [str(p1), str(p2)]
+
+
+_STATUS_COLOR = {"PASS": "#d6f0e0", "PASS-HITL": "#fde8d2", "WARN": "#fff3c4", "FAIL": "#f8d7da", "SKIPPED": "#ececec"}
+
+
+def scenario_chart(res: dict) -> str:
+    """Flow strip + allocation + cumulative-net panels for one scenario."""
+    fig = plt.figure(figsize=(13, 6.2))
+    gs = fig.add_gridspec(2, 2, height_ratios=[0.8, 2.2])
+    ax0 = fig.add_subplot(gs[0, :])
+    ax0.set_xlim(0, 12.6)
+    ax0.set_ylim(0, 2)
+    ax0.axis("off")
+    for i, st in enumerate(res["steps"]):
+        x = 0.1 + i * 2.1
+        ax0.add_patch(FancyBboxPatch((x, 0.3), 1.9, 1.4, boxstyle="round,pad=0.04", fc=_STATUS_COLOR.get(st["status"], "#fff"),
+                                     ec="#2a6fdb", lw=1.2))
+        ax0.text(x + 0.95, 1.2, st["name"].replace(" + ", "\n+ ").replace(" (", "\n("), ha="center", va="center", fontsize=7.5)
+        ax0.text(x + 0.95, 0.55, st["status"], ha="center", va="center", fontsize=8, fontweight="bold")
+        if i < 5:
+            ax0.add_patch(FancyArrowPatch((x + 1.93, 1.0), (x + 2.07, 1.0), arrowstyle="-|>", mutation_scale=9, color="#555"))
+    fig.suptitle(res["label"], fontsize=12, fontweight="bold")
+    ax1, ax2 = fig.add_subplot(gs[1, 0]), fig.add_subplot(gs[1, 1])
+    if res.get("plan"):
+        p = res["plan"]
+        ch = list(p["budgets"])
+        x = np.arange(len(ch))
+        ax1.bar(x - 0.2, [p["prev_budgets"][c] for c in ch], 0.4, label="previous", color="#b7c4d6")
+        ax1.bar(x + 0.2, [p["budgets"][c] for c in ch], 0.4, label="proposed", color=PALETTE[0])
+        ax1.set_xticks(x, ch)
+        ax1.set(title=f"Next-cycle budgets | discount {p['discount']:.0%} | util {p['inventory_util']:.2f}", ylabel="$ / day")
+        ax1.legend(fontsize=7)
+        cum = res["replay"]["cumulative"]
+        for name, col in (("static", "#b7c4d6"), ("heuristic", "#e8b27a"), ("agent", PALETTE[0])):
+            ax2.plot(np.array(cum[name]) / 1e3, label=name, color=col, lw=2 if name == "agent" else 1.4)
+        ax2.set(title=f"Cumulative net margin (lift vs static {res['replay']['lift_vs_static_pct']:+.0f}%, "
+                      f"vs heuristic {res['replay']['lift_vs_heuristic_pct']:+.0f}%)", xlabel="weekly cycle", ylabel="$ thousands")
+        ax2.legend(fontsize=7)
+    else:
+        d = res["drift"]
+        keys = sorted(d, key=d.get)
+        ax1.barh(keys, [d[k] for k in keys], color=[PALETTE[4] if d[k] >= 0.25 else PALETTE[0] for k in keys])
+        ax1.axvline(0.25, ls="--", color="grey")
+        ax1.set(title="Feature PSI, train vs shifted live window (limit 0.25)")
+        ax2.axis("off")
+        ax2.text(0.5, 0.6, "PIPELINE HALTED\n" + res["halt_reason"] + "\n\nno models trusted - no budget or price change sent",
+                 ha="center", va="center", fontsize=11, color="#8a1f17", wrap=True)
+    return _save(fig, f"scenario_{res['id']}.png")

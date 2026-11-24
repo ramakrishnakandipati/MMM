@@ -1,0 +1,1523 @@
+{
+  "baseline": {
+    "id": "baseline",
+    "label": "1. Business as usual",
+    "story": "Normal demand and healthy inventory. The agent shifts budget (max 15% per channel per cycle) toward the channels with the highest marginal return and picks the discount tier with the best net margin.",
+    "expect": "Large yield lift vs both baselines, all gates pass, high discount tier needs human approval.",
+    "halted": false,
+    "steps": [
+      {
+        "step": 1,
+        "name": "1 Data",
+        "status": "PASS",
+        "detail": "regime 'baseline' applied to the ground-truth simulator (180 OOS days)"
+      },
+      {
+        "step": 2,
+        "name": "2 Features + drift",
+        "status": "PASS",
+        "detail": "max PSI train-vs-live 0.168 (< 0.25)"
+      },
+      {
+        "step": 3,
+        "name": "3 Models",
+        "status": "PASS",
+        "detail": "response R2 holdout 0.87; CATE + LinUCB ready"
+      },
+      {
+        "step": 4,
+        "name": "4 Optimize + guardrails",
+        "status": "PASS",
+        "detail": "cvxpy/CLARABEL optimal; discount 20% (util 0.52, margin 55%); clamps: none; gate-4 checks 8/8"
+      },
+      {
+        "step": 5,
+        "name": "5 Evaluate (replay + OPE)",
+        "status": "PASS",
+        "detail": "lift vs static +38.7%, vs heuristic +18.0% over 25 cycles; violations 0"
+      },
+      {
+        "step": 6,
+        "name": "6 Execute / HITL",
+        "status": "PASS-HITL",
+        "detail": "human approval required: discount_tier_20%"
+      }
+    ],
+    "plan": {
+      "status": "optimal",
+      "budgets": {
+        "search": 9077.162757943166,
+        "social": 12706.028748658955,
+        "video": 18659.530212103124,
+        "display": 21359.135737482975,
+        "affiliate": 9267.399482002325
+      },
+      "prev_budgets": {
+        "search": 7893.185010138176,
+        "social": 11048.720655982577,
+        "video": 21952.3884843748,
+        "display": 25128.394984884442,
+        "affiliate": 10902.822919248083
+      },
+      "discount": 0.2,
+      "creative": 2,
+      "unit_margin": 0.35000000000000003,
+      "inventory_util": 0.5215776756587662,
+      "expected_net": 36526.918938554365,
+      "clamps": [],
+      "solver": "cvxpy/CLARABEL",
+      "est_lift": 0.2521424076192227,
+      "est_creative_mult": 1.0943280458450317,
+      "guardrail_ok": true
+    },
+    "net_by_tier": {
+      "0.0": {
+        "net": 19337.62373022862,
+        "creative": 2,
+        "L": 0.0,
+        "mk": 1.0939427614212036,
+        "status": "optimal"
+      },
+      "0.05": {
+        "net": 25979.975533887562,
+        "creative": 2,
+        "L": 0.08317597537372201,
+        "mk": 1.0851523876190186,
+        "status": "optimal"
+      },
+      "0.1": {
+        "net": 29459.987162264653,
+        "creative": 2,
+        "L": 0.1448177844285965,
+        "mk": 1.0800037384033203,
+        "status": "optimal"
+      },
+      "0.2": {
+        "net": 36526.918938554365,
+        "creative": 2,
+        "L": 0.2521424076192227,
+        "mk": 1.0943280458450317,
+        "status": "optimal"
+      }
+    },
+    "replay": {
+      "net": {
+        "static": 9169761.83635306,
+        "heuristic": 10778081.504404185,
+        "agent": 12714564.370792666
+      },
+      "lift_vs_static_pct": 38.6575202028303,
+      "lift_vs_heuristic_pct": 17.96686048066335,
+      "cumulative": {
+        "static": [
+          366790.47345412243,
+          733580.9469082449,
+          1100371.4203623673,
+          1467161.8938164897,
+          1833952.3672706122,
+          2200742.8407247346,
+          2567533.314178857,
+          2934323.7876329795,
+          3301114.261087102,
+          3667904.7345412243,
+          4034695.2079953467,
+          4401485.681449469,
+          4768276.154903592,
+          5135066.628357714,
+          5501857.1018118365,
+          5868647.575265959,
+          6235438.048720081,
+          6602228.522174204,
+          6969018.995628326,
+          7335809.469082449,
+          7702599.942536571,
+          8069390.4159906935,
+          8436180.889444817,
+          8802971.362898938,
+          9169761.83635306
+        ],
+        "heuristic": [
+          473351.5156134602,
+          978995.8614949357,
+          1360572.4188166806,
+          1742137.959464337,
+          2123702.9465106553,
+          2505267.906312704,
+          2903794.616915281,
+          3352961.2579062297,
+          3838952.2296415744,
+          4335142.719761166,
+          4818821.639828694,
+          5262828.731617873,
+          5686899.419094235,
+          6094438.833485533,
+          6476003.791882284,
+          6857568.750279035,
+          7239133.708675787,
+          7620698.667072538,
+          8131094.567273857,
+          8624691.526973646,
+          9086929.439373191,
+          9499910.524693381,
+          9908854.439343724,
+          10334806.487788973,
+          10778081.504404185
+        ],
+        "agent": [
+          549598.2369354175,
+          1179479.426057565,
+          1639779.4933557876,
+          2044677.7754920386,
+          2442017.2771784365,
+          2830620.8198676277,
+          3280463.3022397673,
+          3847505.978732519,
+          4540535.879268374,
+          5254547.508289272,
+          5928012.650872527,
+          6451118.63322285,
+          6886517.248409943,
+          7288440.933745001,
+          7667965.085383799,
+          8032751.719188405,
+          8501597.97967037,
+          9093094.117831655,
+          9720297.406050274,
+          10209138.641626036,
+          10652429.82089854,
+          11224750.589197591,
+          11757337.690808646,
+          12276382.002133809,
+          12714564.370792666
+        ]
+      },
+      "agent_discount_by_cycle": [
+        0.2,
+        0.2,
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.05,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.1,
+        0.05,
+        0.0,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "guardrail_violations": 0
+    },
+    "hitl": {
+      "required": true,
+      "status": "approval_required",
+      "reasons": [
+        "discount_tier_20%"
+      ]
+    },
+    "gate4": [
+      {
+        "name": "solver_status_optimal",
+        "passed": true,
+        "value": "optimal",
+        "threshold": "== optimal",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "budgets_non_negative",
+        "passed": true,
+        "value": 9077.162757943166,
+        "threshold": ">= 0",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "budget_conservation",
+        "passed": true,
+        "value": 71069.25693819055,
+        "threshold": "<= 100000.0",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "max_channel_shift",
+        "passed": true,
+        "value": 0.14999999998681973,
+        "threshold": "<= 0.15",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "discount_suppressed_when_inventory_high",
+        "passed": true,
+        "value": 0.2,
+        "threshold": "== 0 if util > 0.85",
+        "critical": true,
+        "detail": "util=0.522"
+      },
+      {
+        "name": "unit_margin_floor",
+        "passed": true,
+        "value": 0.35000000000000003,
+        "threshold": ">= 0.2",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "max_discount",
+        "passed": true,
+        "value": 0.2,
+        "threshold": "<= 0.2",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "expected_net_finite",
+        "passed": true,
+        "value": 36526.918938554365,
+        "threshold": null,
+        "critical": true,
+        "detail": ""
+      }
+    ],
+    "seconds": 0.28
+  },
+  "demand_shock": {
+    "id": "demand_shock",
+    "label": "2. Demand shock",
+    "story": "Search response collapses (-45%) while display surges (+35%). The online calibrator re-weights channels from observed conversions, so the agent follows the market within a few cycles.",
+    "expect": "Static spend keeps feeding the collapsed channel, so the agent's lift is even larger.",
+    "halted": false,
+    "steps": [
+      {
+        "step": 1,
+        "name": "1 Data",
+        "status": "PASS",
+        "detail": "regime 'demand_shock' applied to the ground-truth simulator (180 OOS days)"
+      },
+      {
+        "step": 2,
+        "name": "2 Features + drift",
+        "status": "PASS",
+        "detail": "max PSI train-vs-live 0.168 (< 0.25)"
+      },
+      {
+        "step": 3,
+        "name": "3 Models",
+        "status": "PASS",
+        "detail": "response R2 holdout 0.87; CATE + LinUCB ready"
+      },
+      {
+        "step": 4,
+        "name": "4 Optimize + guardrails",
+        "status": "PASS",
+        "detail": "cvxpy/CLARABEL optimal; discount 20% (util 0.52, margin 55%); clamps: none; gate-4 checks 8/8"
+      },
+      {
+        "step": 5,
+        "name": "5 Evaluate (replay + OPE)",
+        "status": "PASS",
+        "detail": "lift vs static +41.4%, vs heuristic +22.8% over 25 cycles; violations 0"
+      },
+      {
+        "step": 6,
+        "name": "6 Execute / HITL",
+        "status": "PASS-HITL",
+        "detail": "human approval required: discount_tier_20%"
+      }
+    ],
+    "plan": {
+      "status": "optimal",
+      "budgets": {
+        "search": 9077.162757943166,
+        "social": 12706.028748658955,
+        "video": 18659.530212103124,
+        "display": 21359.135737482975,
+        "affiliate": 9267.399482002325
+      },
+      "prev_budgets": {
+        "search": 7893.185010138176,
+        "social": 11048.720655982577,
+        "video": 21952.3884843748,
+        "display": 25128.394984884442,
+        "affiliate": 10902.822919248083
+      },
+      "discount": 0.2,
+      "creative": 2,
+      "unit_margin": 0.35000000000000003,
+      "inventory_util": 0.5215776756587662,
+      "expected_net": 36526.918938554365,
+      "clamps": [],
+      "solver": "cvxpy/CLARABEL",
+      "est_lift": 0.2521424076192227,
+      "est_creative_mult": 1.0943280458450317,
+      "guardrail_ok": true
+    },
+    "net_by_tier": {
+      "0.0": {
+        "net": 19337.62373022862,
+        "creative": 2,
+        "L": 0.0,
+        "mk": 1.0939427614212036,
+        "status": "optimal"
+      },
+      "0.05": {
+        "net": 25979.975533887562,
+        "creative": 2,
+        "L": 0.08317597537372201,
+        "mk": 1.0851523876190186,
+        "status": "optimal"
+      },
+      "0.1": {
+        "net": 29459.987162264653,
+        "creative": 2,
+        "L": 0.1448177844285965,
+        "mk": 1.0800037384033203,
+        "status": "optimal"
+      },
+      "0.2": {
+        "net": 36526.918938554365,
+        "creative": 2,
+        "L": 0.2521424076192227,
+        "mk": 1.0943280458450317,
+        "status": "optimal"
+      }
+    },
+    "replay": {
+      "net": {
+        "static": 7565075.220308913,
+        "heuristic": 8708544.448840737,
+        "agent": 10694685.929487316
+      },
+      "lift_vs_static_pct": 41.36919485977838,
+      "lift_vs_heuristic_pct": 22.806813380977456,
+      "cumulative": {
+        "static": [
+          302603.0088123564,
+          605206.0176247128,
+          907809.0264370692,
+          1210412.0352494256,
+          1513015.0440617818,
+          1815618.052874138,
+          2118221.0616864944,
+          2420824.0704988507,
+          2723427.079311207,
+          3026030.088123563,
+          3328633.0969359195,
+          3631236.1057482758,
+          3933839.114560632,
+          4236442.123372989,
+          4539045.1321853455,
+          4841648.140997702,
+          5144251.149810059,
+          5446854.158622416,
+          5749457.1674347725,
+          6052060.176247129,
+          6354663.185059486,
+          6657266.193871843,
+          6959869.202684199,
+          7262472.211496556,
+          7565075.220308913
+        ],
+        "heuristic": [
+          387826.5971377351,
+          804778.1609204436,
+          1107473.3238969664,
+          1410157.4701784179,
+          1712841.0628585261,
+          2015524.628294365,
+          2333826.2521761097,
+          2698756.163849146,
+          3097593.221102405,
+          3505821.8015066353,
+          3902529.9654193753,
+          4262709.06200934,
+          4604531.095491266,
+          4931131.446140262,
+          5233815.010170804,
+          5536498.574201346,
+          5839182.138231888,
+          6141865.70226243,
+          6563174.3549431935,
+          6969014.861708771,
+          7345980.552270482,
+          7677591.49033973,
+          8005485.078198708,
+          8349039.43319122,
+          8708544.448840737
+        ],
+        "agent": [
+          477677.73448783526,
+          1032341.3870028497,
+          1432185.5086068828,
+          1781265.541589933,
+          2121218.8741162363,
+          2451832.223617234,
+          2834720.3757297043,
+          3319420.4632744035,
+          3916543.187347473,
+          4532871.69572217,
+          5113998.55007781,
+          5559950.157891028,
+          5923657.990059551,
+          6259555.3995515,
+          6576622.535572153,
+          6872593.848451087,
+          7250589.486793354,
+          7732419.081753015,
+          8242175.242844829,
+          8639187.26502179,
+          8998357.63325852,
+          9465466.98831515,
+          9901066.666026875,
+          10331147.080310956,
+          10694685.929487316
+        ]
+      },
+      "agent_discount_by_cycle": [
+        0.2,
+        0.2,
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.05,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.1,
+        0.05,
+        0.0,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "guardrail_violations": 0
+    },
+    "hitl": {
+      "required": true,
+      "status": "approval_required",
+      "reasons": [
+        "discount_tier_20%"
+      ]
+    },
+    "gate4": [
+      {
+        "name": "solver_status_optimal",
+        "passed": true,
+        "value": "optimal",
+        "threshold": "== optimal",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "budgets_non_negative",
+        "passed": true,
+        "value": 9077.162757943166,
+        "threshold": ">= 0",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "budget_conservation",
+        "passed": true,
+        "value": 71069.25693819055,
+        "threshold": "<= 100000.0",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "max_channel_shift",
+        "passed": true,
+        "value": 0.14999999998681973,
+        "threshold": "<= 0.15",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "discount_suppressed_when_inventory_high",
+        "passed": true,
+        "value": 0.2,
+        "threshold": "== 0 if util > 0.85",
+        "critical": true,
+        "detail": "util=0.522"
+      },
+      {
+        "name": "unit_margin_floor",
+        "passed": true,
+        "value": 0.35000000000000003,
+        "threshold": ">= 0.2",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "max_discount",
+        "passed": true,
+        "value": 0.2,
+        "threshold": "<= 0.2",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "expected_net_finite",
+        "passed": true,
+        "value": 36526.918938554365,
+        "threshold": null,
+        "critical": true,
+        "detail": ""
+      }
+    ],
+    "seconds": 0.3
+  },
+  "inventory_crunch": {
+    "id": "inventory_crunch",
+    "label": "3. Inventory crunch",
+    "story": "Capacity utilisation spikes above 0.85. Promotions would create demand the supply cannot serve, so the guardrail suppresses every discount; the decision snapshot is taken at utilisation 0.92.",
+    "expect": "Discount forced to 0%, lift comes from reallocation only (smallest of the five scenarios).",
+    "halted": false,
+    "steps": [
+      {
+        "step": 1,
+        "name": "1 Data",
+        "status": "PASS",
+        "detail": "regime 'inventory_crunch' applied to the ground-truth simulator (180 OOS days)"
+      },
+      {
+        "step": 2,
+        "name": "2 Features + drift",
+        "status": "PASS",
+        "detail": "max PSI train-vs-live 0.168 (< 0.25)"
+      },
+      {
+        "step": 3,
+        "name": "3 Models",
+        "status": "PASS",
+        "detail": "response R2 holdout 0.87; CATE + LinUCB ready"
+      },
+      {
+        "step": 4,
+        "name": "4 Optimize + guardrails",
+        "status": "PASS",
+        "detail": "cvxpy/CLARABEL optimal; discount 0% (util 0.92, margin 55%); clamps: none; gate-4 checks 8/8"
+      },
+      {
+        "step": 5,
+        "name": "5 Evaluate (replay + OPE)",
+        "status": "WARN",
+        "detail": "lift vs static +6.5%, vs heuristic +2.7% over 25 cycles; violations 0"
+      },
+      {
+        "step": 6,
+        "name": "6 Execute / HITL",
+        "status": "PASS-HITL",
+        "detail": "human approval required: total_budget_change_-10.7%"
+      }
+    ],
+    "plan": {
+      "status": "optimal",
+      "budgets": {
+        "search": 8449.62524036139,
+        "social": 10938.220303533524,
+        "video": 18659.53021176142,
+        "display": 21359.135737193505,
+        "affiliate": 9267.399481446279
+      },
+      "prev_budgets": {
+        "search": 7893.185010138176,
+        "social": 11048.720655982577,
+        "video": 21952.3884843748,
+        "display": 25128.394984884442,
+        "affiliate": 10902.822919248083
+      },
+      "discount": 0.0,
+      "creative": 3,
+      "unit_margin": 0.55,
+      "inventory_util": 0.92,
+      "expected_net": 23170.996316185614,
+      "clamps": [],
+      "solver": "cvxpy/CLARABEL",
+      "est_lift": 0.0,
+      "est_creative_mult": 1.1224805116653442,
+      "guardrail_ok": true
+    },
+    "net_by_tier": {
+      "0.0": {
+        "net": 23170.996316185614,
+        "creative": 3,
+        "L": 0.0,
+        "mk": 1.1224805116653442,
+        "status": "optimal"
+      }
+    },
+    "replay": {
+      "net": {
+        "static": 9169761.83635306,
+        "heuristic": 9513737.10070426,
+        "agent": 9766317.507215247
+      },
+      "lift_vs_static_pct": 6.505683370064986,
+      "lift_vs_heuristic_pct": 2.6549021045818995,
+      "cumulative": {
+        "static": [
+          366790.47345412243,
+          733580.9469082449,
+          1100371.4203623673,
+          1467161.8938164897,
+          1833952.3672706122,
+          2200742.8407247346,
+          2567533.314178857,
+          2934323.7876329795,
+          3301114.261087102,
+          3667904.7345412243,
+          4034695.2079953467,
+          4401485.681449469,
+          4768276.154903592,
+          5135066.628357714,
+          5501857.1018118365,
+          5868647.575265959,
+          6235438.048720081,
+          6602228.522174204,
+          6969018.995628326,
+          7335809.469082449,
+          7702599.942536571,
+          8069390.4159906935,
+          8436180.889444817,
+          8802971.362898938,
+          9169761.83635306
+        ],
+        "heuristic": [
+          380541.6163519576,
+          762307.0276552744,
+          1143883.584977019,
+          1525449.1256246755,
+          1907014.1126709937,
+          2288579.072473042,
+          2670144.0309386915,
+          3051708.989338821,
+          3413730.06325314,
+          3854270.3589780037,
+          4254088.486475182,
+          4610897.9833824355,
+          4992462.941779187,
+          5374027.900175938,
+          5755592.85857269,
+          6137157.816969441,
+          6518722.775366193,
+          6900287.733762944,
+          7281852.692159696,
+          7663417.650556447,
+          8044982.608953198,
+          8398941.030111497,
+          8780505.988508249,
+          9132172.142307509,
+          9513737.10070426
+        ],
+        "agent": [
+          485125.3310794983,
+          1006141.1149860644,
+          1455847.1635664653,
+          1856542.162835678,
+          2249598.6644469206,
+          2636760.5889195167,
+          3009200.015715114,
+          3368537.8926790855,
+          3796563.832674748,
+          4330068.74299024,
+          4786059.82482397,
+          5111973.829628268,
+          5481047.227718478,
+          5834598.151820319,
+          6179298.814605129,
+          6504473.0652746055,
+          6908447.006235977,
+          7360822.127174978,
+          7830378.120696006,
+          8213618.07776409,
+          8470032.665431026,
+          8854991.570180085,
+          9204242.31449269,
+          9503618.068780603,
+          9766317.507215247
+        ]
+      },
+      "agent_discount_by_cycle": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.2,
+        0.05,
+        0.05,
+        0.1,
+        0.2
+      ],
+      "guardrail_violations": 0
+    },
+    "hitl": {
+      "required": true,
+      "status": "approval_required",
+      "reasons": [
+        "total_budget_change_-10.7%"
+      ]
+    },
+    "gate4": [
+      {
+        "name": "solver_status_optimal",
+        "passed": true,
+        "value": "optimal",
+        "threshold": "== optimal",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "budgets_non_negative",
+        "passed": true,
+        "value": 8449.62524036139,
+        "threshold": ">= 0",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "budget_conservation",
+        "passed": true,
+        "value": 68673.91097429612,
+        "threshold": "<= 100000.0",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "max_channel_shift",
+        "passed": true,
+        "value": 0.14999999999833938,
+        "threshold": "<= 0.15",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "discount_suppressed_when_inventory_high",
+        "passed": true,
+        "value": 0.0,
+        "threshold": "== 0 if util > 0.85",
+        "critical": true,
+        "detail": "util=0.920"
+      },
+      {
+        "name": "unit_margin_floor",
+        "passed": true,
+        "value": 0.55,
+        "threshold": ">= 0.2",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "max_discount",
+        "passed": true,
+        "value": 0.0,
+        "threshold": "<= 0.2",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "expected_net_finite",
+        "passed": true,
+        "value": 23170.996316185614,
+        "threshold": null,
+        "critical": true,
+        "detail": ""
+      }
+    ],
+    "seconds": 0.17
+  },
+  "high_cac": {
+    "id": "high_cac",
+    "label": "4. CAC inflation",
+    "story": "Social and video saturate later (K x1.7) so each extra dollar buys fewer conversions. The agent moves spend to cheaper channels and, when marginal ROI < 1, spends less than the static plan.",
+    "expect": "Lift vs static is large because the static plan over-spends on now-expensive channels.",
+    "halted": false,
+    "steps": [
+      {
+        "step": 1,
+        "name": "1 Data",
+        "status": "PASS",
+        "detail": "regime 'high_cac' applied to the ground-truth simulator (180 OOS days)"
+      },
+      {
+        "step": 2,
+        "name": "2 Features + drift",
+        "status": "PASS",
+        "detail": "max PSI train-vs-live 0.168 (< 0.25)"
+      },
+      {
+        "step": 3,
+        "name": "3 Models",
+        "status": "PASS",
+        "detail": "response R2 holdout 0.87; CATE + LinUCB ready"
+      },
+      {
+        "step": 4,
+        "name": "4 Optimize + guardrails",
+        "status": "PASS",
+        "detail": "cvxpy/CLARABEL optimal; discount 20% (util 0.52, margin 55%); clamps: none; gate-4 checks 8/8"
+      },
+      {
+        "step": 5,
+        "name": "5 Evaluate (replay + OPE)",
+        "status": "PASS",
+        "detail": "lift vs static +43.9%, vs heuristic +18.9% over 25 cycles; violations 0"
+      },
+      {
+        "step": 6,
+        "name": "6 Execute / HITL",
+        "status": "PASS-HITL",
+        "detail": "human approval required: discount_tier_20%"
+      }
+    ],
+    "plan": {
+      "status": "optimal",
+      "budgets": {
+        "search": 9077.162757943166,
+        "social": 12706.028748658955,
+        "video": 18659.530212103124,
+        "display": 21359.135737482975,
+        "affiliate": 9267.399482002325
+      },
+      "prev_budgets": {
+        "search": 7893.185010138176,
+        "social": 11048.720655982577,
+        "video": 21952.3884843748,
+        "display": 25128.394984884442,
+        "affiliate": 10902.822919248083
+      },
+      "discount": 0.2,
+      "creative": 2,
+      "unit_margin": 0.35000000000000003,
+      "inventory_util": 0.5215776756587662,
+      "expected_net": 36526.918938554365,
+      "clamps": [],
+      "solver": "cvxpy/CLARABEL",
+      "est_lift": 0.2521424076192227,
+      "est_creative_mult": 1.0943280458450317,
+      "guardrail_ok": true
+    },
+    "net_by_tier": {
+      "0.0": {
+        "net": 19337.62373022862,
+        "creative": 2,
+        "L": 0.0,
+        "mk": 1.0939427614212036,
+        "status": "optimal"
+      },
+      "0.05": {
+        "net": 25979.975533887562,
+        "creative": 2,
+        "L": 0.08317597537372201,
+        "mk": 1.0851523876190186,
+        "status": "optimal"
+      },
+      "0.1": {
+        "net": 29459.987162264653,
+        "creative": 2,
+        "L": 0.1448177844285965,
+        "mk": 1.0800037384033203,
+        "status": "optimal"
+      },
+      "0.2": {
+        "net": 36526.918938554365,
+        "creative": 2,
+        "L": 0.2521424076192227,
+        "mk": 1.0943280458450317,
+        "status": "optimal"
+      }
+    },
+    "replay": {
+      "net": {
+        "static": 6600879.827839859,
+        "heuristic": 7985969.237486511,
+        "agent": 9496340.365774784
+      },
+      "lift_vs_static_pct": 43.86476671977933,
+      "lift_vs_heuristic_pct": 18.912809245476698,
+      "cumulative": {
+        "static": [
+          264035.19311359443,
+          528070.3862271889,
+          792105.5793407833,
+          1056140.7724543777,
+          1320175.965567972,
+          1584211.1586815664,
+          1848246.3517951607,
+          2112281.544908755,
+          2376316.7380223493,
+          2640351.9311359436,
+          2904387.124249538,
+          3168422.3173631323,
+          3432457.5104767266,
+          3696492.703590321,
+          3960527.896703915,
+          4224563.08981751,
+          4488598.282931104,
+          4752633.476044699,
+          5016668.669158293,
+          5280703.862271887,
+          5544739.055385482,
+          5808774.248499076,
+          6072809.44161267,
+          6336844.6347262645,
+          6600879.827839859
+        ],
+        "heuristic": [
+          357113.42303138203,
+          743113.9830489954,
+          1018301.553522584,
+          1293479.2021407322,
+          1568656.3519529614,
+          1843833.4772158314,
+          2134160.10705264,
+          2469716.139596307,
+          2838162.076843501,
+          3215717.7842046036,
+          3582098.6965759336,
+          3913046.442203582,
+          4226187.850968479,
+          4524564.239286157,
+          4799741.363282723,
+          5074918.487279289,
+          5350095.611275855,
+          5625272.7352724215,
+          6015516.102515408,
+          6390755.380314078,
+          6737986.108970108,
+          7041222.763168018,
+          7340853.59056829,
+          7655675.349844081,
+          7985969.237486511
+        ],
+        "agent": [
+          431608.06023223867,
+          934796.4600911476,
+          1290046.5570862219,
+          1599998.937943328,
+          1904837.9641250249,
+          2201222.2174790595,
+          2548532.6805205634,
+          2995898.5039714016,
+          3549499.4453795166,
+          4119260.4741497873,
+          4646440.358071367,
+          5047317.13490958,
+          5371498.434750175,
+          5667034.784700506,
+          5943303.962968883,
+          6201842.688759275,
+          6531957.397367056,
+          6949996.874331789,
+          7387427.763285033,
+          7727693.655357271,
+          8039309.373993122,
+          8447549.696466759,
+          8826839.592932276,
+          9195954.851348465,
+          9496340.365774784
+        ]
+      },
+      "agent_discount_by_cycle": [
+        0.2,
+        0.2,
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        0.05,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.1,
+        0.05,
+        0.0,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "guardrail_violations": 0
+    },
+    "hitl": {
+      "required": true,
+      "status": "approval_required",
+      "reasons": [
+        "discount_tier_20%"
+      ]
+    },
+    "gate4": [
+      {
+        "name": "solver_status_optimal",
+        "passed": true,
+        "value": "optimal",
+        "threshold": "== optimal",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "budgets_non_negative",
+        "passed": true,
+        "value": 9077.162757943166,
+        "threshold": ">= 0",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "budget_conservation",
+        "passed": true,
+        "value": 71069.25693819055,
+        "threshold": "<= 100000.0",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "max_channel_shift",
+        "passed": true,
+        "value": 0.14999999998681973,
+        "threshold": "<= 0.15",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "discount_suppressed_when_inventory_high",
+        "passed": true,
+        "value": 0.2,
+        "threshold": "== 0 if util > 0.85",
+        "critical": true,
+        "detail": "util=0.522"
+      },
+      {
+        "name": "unit_margin_floor",
+        "passed": true,
+        "value": 0.35000000000000003,
+        "threshold": ">= 0.2",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "max_discount",
+        "passed": true,
+        "value": 0.2,
+        "threshold": "<= 0.2",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "expected_net_finite",
+        "passed": true,
+        "value": 36526.918938554365,
+        "threshold": null,
+        "critical": true,
+        "detail": ""
+      }
+    ],
+    "seconds": 0.32
+  },
+  "margin_squeeze": {
+    "id": "margin_squeeze",
+    "label": "5. Margin squeeze (COGS spike)",
+    "story": "Gross margin falls from 55% to 38%. The unit-margin floor (>= 20%) removes the 20% discount tier and the optimizer trims unprofitable spend.",
+    "expect": "Discount tier capped below 20%; biggest relative lift because the static plan burns margin.",
+    "halted": false,
+    "steps": [
+      {
+        "step": 1,
+        "name": "1 Data",
+        "status": "PASS",
+        "detail": "regime 'margin_squeeze' applied to the ground-truth simulator (180 OOS days)"
+      },
+      {
+        "step": 2,
+        "name": "2 Features + drift",
+        "status": "PASS",
+        "detail": "max PSI train-vs-live 0.168 (< 0.25)"
+      },
+      {
+        "step": 3,
+        "name": "3 Models",
+        "status": "PASS",
+        "detail": "response R2 holdout 0.87; CATE + LinUCB ready"
+      },
+      {
+        "step": 4,
+        "name": "4 Optimize + guardrails",
+        "status": "PASS",
+        "detail": "cvxpy/CLARABEL optimal; discount 10% (util 0.52, margin 38%); clamps: none; gate-4 checks 8/8"
+      },
+      {
+        "step": 5,
+        "name": "5 Evaluate (replay + OPE)",
+        "status": "PASS",
+        "detail": "lift vs static +103.0%, vs heuristic +53.9% over 25 cycles; violations 0"
+      },
+      {
+        "step": 6,
+        "name": "6 Execute / HITL",
+        "status": "PASS-HITL",
+        "detail": "human approval required: discount_tier_10%, total_budget_change_-15.0%"
+      }
+    ],
+    "plan": {
+      "status": "optimal",
+      "budgets": {
+        "search": 6709.207259829398,
+        "social": 9391.412558211272,
+        "video": 18659.530211840683,
+        "display": 21359.135737248955,
+        "affiliate": 9267.399481500439
+      },
+      "prev_budgets": {
+        "search": 7893.185010138176,
+        "social": 11048.720655982577,
+        "video": 21952.3884843748,
+        "display": 25128.394984884442,
+        "affiliate": 10902.822919248083
+      },
+      "discount": 0.1,
+      "creative": 2,
+      "unit_margin": 0.28,
+      "inventory_util": 0.5215776756587662,
+      "expected_net": -3074.891999526495,
+      "clamps": [],
+      "solver": "cvxpy/CLARABEL",
+      "est_lift": 0.1448177844285965,
+      "est_creative_mult": 1.0800037384033203,
+      "guardrail_ok": true
+    },
+    "net_by_tier": {
+      "0.0": {
+        "net": -7132.908612090332,
+        "creative": 2,
+        "L": 0.0,
+        "mk": 1.0939427614212036,
+        "status": "optimal"
+      },
+      "0.05": {
+        "net": -3960.0000797810344,
+        "creative": 2,
+        "L": 0.08317597537372201,
+        "mk": 1.0851523876190186,
+        "status": "optimal"
+      },
+      "0.1": {
+        "net": -3074.891999526495,
+        "creative": 2,
+        "L": 0.1448177844285965,
+        "mk": 1.0800037384033203,
+        "status": "optimal"
+      }
+    },
+    "replay": {
+      "net": {
+        "static": 2470852.14502425,
+        "heuristic": 3258106.6493549095,
+        "agent": 5015305.313728933
+      },
+      "lift_vs_static_pct": 102.9787708596263,
+      "lift_vs_heuristic_pct": 53.93312292959904,
+      "cumulative": {
+        "static": [
+          98834.08580097003,
+          197668.17160194006,
+          296502.2574029101,
+          395336.3432038801,
+          494170.42900485016,
+          593004.5148058202,
+          691838.6006067903,
+          790672.6864077603,
+          889506.7722087302,
+          988340.8580097002,
+          1087174.9438106702,
+          1186009.0296116401,
+          1284843.1154126101,
+          1383677.20121358,
+          1482511.28701455,
+          1581345.37281552,
+          1680179.45861649,
+          1779013.54441746,
+          1877847.63021843,
+          1976681.7160194,
+          2075515.80182037,
+          2174349.88762134,
+          2273183.97342231,
+          2372018.05922328,
+          2470852.14502425
+        ],
+        "heuristic": [
+          153065.14325515012,
+          327865.8453445412,
+          436915.77090859564,
+          545958.084952371,
+          655000.0165079489,
+          764041.9292402132,
+          866744.2229688071,
+          1003531.0852280362,
+          1165103.55471907,
+          1333541.0846610393,
+          1493557.3655295044,
+          1626871.454287542,
+          1746766.8093734912,
+          1855535.3460368016,
+          1964577.2577981337,
+          2073619.1695594657,
+          2182661.081320798,
+          2291702.9930821303,
+          2469701.8567329543,
+          2636393.741200056,
+          2781978.574599686,
+          2894409.774388212,
+          3004123.6477643414,
+          3125285.303502426,
+          3258106.6493549095
+        ],
+        "agent": [
+          192111.94752542436,
+          431902.07984267164,
+          622904.7797044624,
+          811259.9784820566,
+          1003017.1508863359,
+          1193879.623285427,
+          1411755.6549105523,
+          1666860.4353522765,
+          1963986.798745671,
+          2260967.4436930455,
+          2535579.0739317946,
+          2747396.3657521377,
+          2923038.547697566,
+          3086830.999388213,
+          3239078.7818379654,
+          3383279.6848241547,
+          3552364.38071746,
+          3749035.2291293805,
+          3956872.9642234906,
+          4116499.0056392387,
+          4268551.760281197,
+          4489312.660001462,
+          4692489.3186364565,
+          4875434.348449166,
+          5015305.313728933
+        ]
+      },
+      "agent_discount_by_cycle": [
+        0.05,
+        0.05,
+        0.1,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.05,
+        0.05,
+        0.0,
+        0.0,
+        0.1,
+        0.05,
+        0.05,
+        0.05,
+        0.1,
+        0.05,
+        0.05,
+        0.05,
+        0.1
+      ],
+      "guardrail_violations": 0
+    },
+    "hitl": {
+      "required": true,
+      "status": "approval_required",
+      "reasons": [
+        "discount_tier_10%",
+        "total_budget_change_-15.0%"
+      ]
+    },
+    "gate4": [
+      {
+        "name": "solver_status_optimal",
+        "passed": true,
+        "value": "optimal",
+        "threshold": "== optimal",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "budgets_non_negative",
+        "passed": true,
+        "value": 6709.207259829398,
+        "threshold": ">= 0",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "budget_conservation",
+        "passed": true,
+        "value": 65386.68524863075,
+        "threshold": "<= 100000.0",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "max_channel_shift",
+        "passed": true,
+        "value": 0.1499999999961327,
+        "threshold": "<= 0.15",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "discount_suppressed_when_inventory_high",
+        "passed": true,
+        "value": 0.1,
+        "threshold": "== 0 if util > 0.85",
+        "critical": true,
+        "detail": "util=0.522"
+      },
+      {
+        "name": "unit_margin_floor",
+        "passed": true,
+        "value": 0.28,
+        "threshold": ">= 0.2",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "max_discount",
+        "passed": true,
+        "value": 0.1,
+        "threshold": "<= 0.2",
+        "critical": true,
+        "detail": ""
+      },
+      {
+        "name": "expected_net_finite",
+        "passed": true,
+        "value": -3074.891999526495,
+        "threshold": null,
+        "critical": true,
+        "detail": ""
+      }
+    ],
+    "seconds": 0.24
+  },
+  "live_drift": {
+    "id": "live_drift",
+    "label": "6. Live feature drift (pipeline HALT)",
+    "story": "The live window's price-sensitivity feature shifts by +0.35. Gate 2 (PSI < 0.25) fails, the pipeline halts before any model is trusted and nothing is executed.",
+    "expect": "Gate 2 FAIL (critical) -> HALT; steps 3-6 skipped; no budget change is sent.",
+    "halted": true,
+    "halt_reason": "Gate 2 failed: max_psi_train_vs_live (price_sens=3.71)",
+    "steps": [
+      {
+        "step": 1,
+        "name": "1 Data",
+        "status": "PASS",
+        "detail": "raw data integrity checks pass"
+      },
+      {
+        "step": 2,
+        "name": "2 Features + drift",
+        "status": "FAIL",
+        "detail": "max PSI 3.71 on 'price_sens' (limit 0.25) -> critical, HALT"
+      },
+      {
+        "step": 3,
+        "name": "3 Models",
+        "status": "SKIPPED",
+        "detail": "pipeline halted upstream"
+      },
+      {
+        "step": 4,
+        "name": "4 Optimize + guardrails",
+        "status": "SKIPPED",
+        "detail": "pipeline halted upstream"
+      },
+      {
+        "step": 5,
+        "name": "5 Evaluate (replay + OPE)",
+        "status": "SKIPPED",
+        "detail": "pipeline halted upstream"
+      },
+      {
+        "step": 6,
+        "name": "6 Execute / HITL",
+        "status": "SKIPPED",
+        "detail": "pipeline halted upstream"
+      }
+    ],
+    "plan": null,
+    "replay": null,
+    "hitl": {
+      "required": false,
+      "status": "halted"
+    },
+    "drift": {
+      "adstock_search": 0.02844,
+      "adstock_social": 0.0605,
+      "adstock_video": 0.03409,
+      "adstock_display": 0.16801,
+      "adstock_affiliate": 0.08805,
+      "inventory_util": 0.04149,
+      "price_sens": 3.70673,
+      "loyalty": 0.01781,
+      "recency": 0.02699,
+      "mobile_share": 0.06069,
+      "weekend": 0.0,
+      "total_spend": 0.09771,
+      "unit_margin": 0.01386
+    },
+    "seconds": 0.01
+  }
+}

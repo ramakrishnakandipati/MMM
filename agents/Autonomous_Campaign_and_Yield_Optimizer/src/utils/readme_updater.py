@@ -94,6 +94,40 @@ def _metrics_block(m: dict) -> str:
     return "\n".join(lines)
 
 
+def _scenarios_block() -> str:
+    p = out_dir("scenarios", "scenario_results.json")
+    if not p.exists():
+        return "_Run `python run_all.py` to populate._"
+    R = json.loads(p.read_text())
+    rows = ["| # | Scenario | Outcome | Discount | Lift vs static | Lift vs heuristic | Step statuses (1-6) | HITL |",
+            "|---|---|---|---|---|---|---|---|"]
+    for i, r in enumerate(R.values(), 1):
+        stat = " ".join({"PASS": "P", "PASS-HITL": "P+H", "WARN": "W", "FAIL": "F", "SKIPPED": "-"}[s["status"]] for s in r["steps"])
+        if r["halted"]:
+            rows.append(f"| {i} | {r['label']} | **HALT** | - | - | - | {stat} | halted |")
+        else:
+            rp = r["replay"]
+            rows.append(f"| {i} | {r['label']} | completed | {r['plan']['discount']:.0%} | {rp['lift_vs_static_pct']:+.1f}% | "
+                        f"{rp['lift_vs_heuristic_pct']:+.1f}% | {stat} | {r['hitl']['status']} |")
+    out = ["\n".join(rows), "", "_P = pass, P+H = pass but human approval required, W = warn (below +8% target), F = fail, - = skipped_", ""]
+    for i, r in enumerate(R.values(), 1):
+        out += [f"#### {r['label']}", f"{r['story']}", "", f"_Expected:_ {r['expect']}", "",
+                f"![{r['id']}](outputs/charts/scenario_{r['id']}.png)", ""]
+    return "\n".join(out)
+
+
+def _screenshot_block() -> str:
+    shots = sorted(out_dir("screenshots").glob("*.png"))
+    groups = [("Flask control portal", "flask_"), ("Streamlit - live run, HITL approval, validation, GPU", "streamlit_"),
+              ("Streamlit - Scenario Studio (end-to-end examples)", "scenario_")]
+    out = []
+    for title, pre in groups:
+        g = [s for s in shots if s.name.startswith(pre)]
+        if g:
+            out += [f"**{title}**", ""] + [f"![{s.stem}](outputs/screenshots/{s.name})" for s in g] + [""]
+    return "\n".join(out)
+
+
 def update_docs() -> list[str]:
     rp = out_dir("validation", "step_validation_report.json")
     mp = out_dir("metrics", "system_metrics.json")
@@ -109,9 +143,9 @@ def update_docs() -> list[str]:
         t = _replace_block(t, "LINEAGE", MERMAID_LINEAGE)
         t = _replace_block(t, "GATES", _gate_table(report))
         t = _replace_block(t, "METRICS", _metrics_block(metrics))
-        shots = sorted(out_dir("screenshots").glob("*.png"))
-        if shots:
-            t = _replace_block(t, "SCREENSHOTS", "\n".join(f"![{s.stem}](outputs/screenshots/{s.name})" for s in shots))
+        t = _replace_block(t, "SCENARIOS", _scenarios_block())
+        if list(out_dir("screenshots").glob("*.png")):
+            t = _replace_block(t, "SCREENSHOTS", _screenshot_block())
         p.write_text(t, encoding="utf-8")
         touched.append(name)
     return touched

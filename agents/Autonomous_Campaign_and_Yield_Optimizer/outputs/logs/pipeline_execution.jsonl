@@ -1,14 +1,14 @@
-{"ts": "2026-11-24T21:37:56.904+00:00", "stage": "gate_1", "message": "gate_result", "passed": true, "severity": "ok"}
-{"ts": "2026-11-24T21:37:56.904+00:00", "stage": "1_ingest", "message": "stage_complete", "seconds": 0.0584}
-{"ts": "2026-11-24T21:37:57.250+00:00", "stage": "gate_2", "message": "gate_result", "passed": true, "severity": "ok"}
-{"ts": "2026-11-24T21:37:57.250+00:00", "stage": "2_features", "message": "stage_complete", "seconds": 0.3443}
-{"ts": "2026-11-24T21:38:10.350+00:00", "stage": "gate_3", "message": "gate_result", "passed": true, "severity": "ok"}
-{"ts": "2026-11-24T21:38:14.076+00:00", "stage": "3_models", "message": "stage_complete", "seconds": 16.8247}
-{"ts": "2026-11-24T21:38:14.181+00:00", "stage": "gate_4", "message": "gate_result", "passed": true, "severity": "ok"}
-{"ts": "2026-11-24T21:38:14.181+00:00", "stage": "4_optimize", "message": "stage_complete", "seconds": 0.1038}
-{"ts": "2026-11-24T21:38:15.936+00:00", "stage": "gate_5", "message": "gate_result", "passed": true, "severity": "ok"}
-{"ts": "2026-11-24T21:38:15.937+00:00", "stage": "5_evaluate", "message": "stage_complete", "seconds": 1.7522}
-{"ts": "2026-11-24T21:38:18.547+00:00", "stage": "6a_visual_qa_hitl", "message": "stage_complete", "seconds": 2.6091}
-{"ts": "2026-11-24T21:38:18.553+00:00", "stage": "gate_6", "message": "gate_result", "passed": true, "severity": "ok"}
-{"ts": "2026-11-24T21:38:18.557+00:00", "stage": "6_execute", "message": "stage_complete", "seconds": 0.0077}
-{"ts": "2026-11-24T21:38:18.709+00:00", "stage": "run_all", "message": "complete", "seconds": 95.59, "all_gates_passed": true}
+{"ts": "2026-11-24T22:03:48.033+00:00", "stage": "gate_1", "message": "gate_result", "passed": true, "severity": "ok"}
+{"ts": "2026-11-24T22:03:48.033+00:00", "stage": "1_ingest", "message": "stage_complete", "seconds": 0.0636}
+{"ts": "2026-11-24T22:03:48.403+00:00", "stage": "gate_2", "message": "gate_result", "passed": true, "severity": "ok"}
+{"ts": "2026-11-24T22:03:48.403+00:00", "stage": "2_features", "message": "stage_complete", "seconds": 0.3689}
+{"ts": "2026-11-24T22:04:00.841+00:00", "stage": "gate_3", "message": "gate_result", "passed": true, "severity": "ok"}
+{"ts": "2026-11-24T22:04:04.691+00:00", "stage": "3_models", "message": "stage_complete", "seconds": 16.2848}
+{"ts": "2026-11-24T22:04:04.780+00:00", "stage": "gate_4", "message": "gate_result", "passed": true, "severity": "ok"}
+{"ts": "2026-11-24T22:04:04.781+00:00", "stage": "4_optimize", "message": "stage_complete", "seconds": 0.0894}
+{"ts": "2026-11-24T22:04:06.289+00:00", "stage": "gate_5", "message": "gate_result", "passed": true, "severity": "ok"}
+{"ts": "2026-11-24T22:04:06.289+00:00", "stage": "5_evaluate", "message": "stage_complete", "seconds": 1.5074}
+{"ts": "2026-11-24T22:04:10.075+00:00", "stage": "6a_visual_qa_hitl", "message": "stage_complete", "seconds": 3.7839}
+{"ts": "2026-11-24T22:04:10.080+00:00", "stage": "gate_6", "message": "gate_result", "passed": true, "severity": "ok"}
+{"ts": "2026-11-24T22:04:10.083+00:00", "stage": "6_execute", "message": "stage_complete", "seconds": 0.0061}
+{"ts": "2026-11-24T22:04:12.616+00:00", "stage": "run_all", "message": "complete", "seconds": 118.81, "all_gates_passed": true}

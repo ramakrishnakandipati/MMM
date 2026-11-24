@@ -23,7 +23,7 @@ from ..utils.logger import audit, log_event, read_jsonl, stage_timer
 from ..validation import step_validators as sv
 from ..validation.contracts import BanditArtifact, ResponseArtifact, UpliftArtifact
 from .state import AgentState, RunContext
-from .tools import MockAdPlatformAPI, MockPricingAPI, Planner
+from .tools import MockAdPlatformAPI, MockPricingAPI, Planner, hitl_reasons
 
 SEVERE = "critical"
 
@@ -198,13 +198,7 @@ def make_nodes(ctx: RunContext) -> dict:
             reasons = list(state.get("escalations", []))
             if verdict.verdict != "ok":
                 reasons.append(f"visual_verdict_{verdict.verdict}")
-            if plan["discount"] >= h["discount_tier_trigger"]:
-                reasons.append(f"discount_tier_{plan['discount']:.0%}")
-            tot_new, tot_prev = sum(plan["budgets"].values()), sum(plan["prev_budgets"].values())
-            if abs(tot_new - tot_prev) / tot_prev > h["total_budget_change_pct"]:
-                reasons.append(f"total_budget_change_{(tot_new - tot_prev) / tot_prev:+.1%}")
-            if plan["unit_margin"] - ctx.gcfg["min_unit_margin"] < h["margin_buffer"]:
-                reasons.append("unit_margin_near_floor")
+            reasons = hitl_reasons(plan, cfg, ctx.gcfg, reasons)
             upd = {"visual": {**verdict.model_dump(), "meta": meta}, "escalations": reasons}
             if not h["enabled"] or not reasons:
                 upd["hitl"] = {"required": False, "status": "not_required"}

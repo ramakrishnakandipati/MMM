@@ -63,8 +63,8 @@
         }
       ],
       "severity": "ok",
-      "seconds": 0.0055,
-      "timestamp": "2026-11-24T21:37:56.903862+00:00"
+      "seconds": 0.0054,
+      "timestamp": "2026-11-24T22:03:48.032987+00:00"
     },
     "2": {
       "gate": 2,
@@ -113,8 +113,8 @@
         }
       ],
       "severity": "ok",
-      "seconds": 0.013,
-      "timestamp": "2026-11-24T21:37:56.926872+00:00"
+      "seconds": 0.0135,
+      "timestamp": "2026-11-24T22:03:48.057037+00:00"
     },
     "3": {
       "gate": 3,
@@ -204,7 +204,7 @@
         {
           "name": "bandit_covariance_pd",
           "passed": true,
-          "value": 0.9999610185623169,
+          "value": 0.9999436736106873,
           "threshold": "> 0",
           "critical": true,
           "detail": ""
@@ -212,7 +212,7 @@
       ],
       "severity": "ok",
       "seconds": 0.0002,
-      "timestamp": "2026-11-24T21:38:10.349599+00:00"
+      "timestamp": "2026-11-24T22:04:00.839811+00:00"
     },
     "4": {
       "gate": 4,
@@ -230,7 +230,7 @@
         {
           "name": "budgets_non_negative",
           "passed": true,
-          "value": 9077.162754905368,
+          "value": 9077.162754841014,
           "threshold": ">= 0",
           "critical": true,
           "detail": ""
@@ -238,7 +238,7 @@
         {
           "name": "budget_conservation",
           "passed": true,
-          "value": 71069.25693506197,
+          "value": 71069.25693499824,
           "threshold": "<= 100000.0",
           "critical": true,
           "detail": ""
@@ -246,7 +246,7 @@
         {
           "name": "max_channel_shift",
           "passed": true,
-          "value": 0.14999999998424995,
+          "value": 0.1499999999841925,
           "threshold": "<= 0.15",
           "critical": true,
           "detail": ""
@@ -278,7 +278,7 @@
         {
           "name": "expected_net_finite",
           "passed": true,
-          "value": 36839.36615849894,
+          "value": 36850.790904195674,
           "threshold": null,
           "critical": true,
           "detail": ""
@@ -286,7 +286,7 @@
       ],
       "severity": "ok",
       "seconds": 0.0001,
-      "timestamp": "2026-11-24T21:38:14.119207+00:00"
+      "timestamp": "2026-11-24T22:04:04.724204+00:00"
     },
     "5": {
       "gate": 5,
@@ -296,7 +296,7 @@
         {
           "name": "ope_dr_lift_ci_lower_gt_0",
           "passed": true,
-          "value": 0.27080076932907104,
+          "value": 0.27072328329086304,
           "threshold": "> 0 (95% CI)",
           "critical": true,
           "detail": ""
@@ -304,7 +304,7 @@
         {
           "name": "ope_ips_dr_agree_sign",
           "passed": true,
-          "value": "ips=0.1942 dr=0.2785",
+          "value": "ips=0.1956 dr=0.2784",
           "threshold": null,
           "critical": false,
           "detail": ""
@@ -312,7 +312,7 @@
         {
           "name": "lift_vs_static_ge_target",
           "passed": true,
-          "value": 36.36528804633846,
+          "value": 36.341383748516066,
           "threshold": ">= 8.0%",
           "critical": true,
           "detail": ""
@@ -320,7 +320,7 @@
         {
           "name": "lift_vs_heuristic_ge_target",
           "passed": true,
-          "value": 18.514695666321273,
+          "value": 18.493920507025784,
           "threshold": ">= 8.0%",
           "critical": true,
           "detail": ""
@@ -344,7 +344,7 @@
         {
           "name": "agent_beats_static_in_every_regime",
           "passed": true,
-          "value": 6.505683297870804,
+          "value": 6.505683370064986,
           "threshold": "> 0",
           "critical": false,
           "detail": ""
@@ -352,7 +352,7 @@
       ],
       "severity": "ok",
       "seconds": 0.0001,
-      "timestamp": "2026-11-24T21:38:15.804358+00:00"
+      "timestamp": "2026-11-24T22:04:06.153698+00:00"
     },
     "6": {
       "gate": 6,
@@ -425,40 +425,40 @@
         }
       ],
       "severity": "ok",
-      "seconds": 0.0019,
-      "timestamp": "2026-11-24T21:38:18.552458+00:00"
+      "seconds": 0.0018,
+      "timestamp": "2026-11-24T22:04:10.079114+00:00"
     }
   },
   "history": [
     {
       "gate": 1,
       "passed": true,
-      "timestamp": "2026-11-24T21:37:56.903862+00:00"
+      "timestamp": "2026-11-24T22:03:48.032987+00:00"
     },
     {
       "gate": 2,
       "passed": true,
-      "timestamp": "2026-11-24T21:37:56.926872+00:00"
+      "timestamp": "2026-11-24T22:03:48.057037+00:00"
     },
     {
       "gate": 3,
       "passed": true,
-      "timestamp": "2026-11-24T21:38:10.349599+00:00"
+      "timestamp": "2026-11-24T22:04:00.839811+00:00"
     },
     {
       "gate": 4,
       "passed": true,
-      "timestamp": "2026-11-24T21:38:14.119207+00:00"
+      "timestamp": "2026-11-24T22:04:04.724204+00:00"
     },
     {
       "gate": 5,
       "passed": true,
-      "timestamp": "2026-11-24T21:38:15.804358+00:00"
+      "timestamp": "2026-11-24T22:04:06.153698+00:00"
     },
     {
       "gate": 6,
       "passed": true,
-      "timestamp": "2026-11-24T21:38:18.552458+00:00"
+      "timestamp": "2026-11-24T22:04:10.079114+00:00"
     }
   ],
   "summary": {
@@ -466,6 +466,6 @@
     "gates_passed": 6,
     "pass_rate": 1.0,
     "all_passed": true,
-    "updated": "2026-11-24T21:38:18.552458+00:00"
+    "updated": "2026-11-24T22:04:10.079114+00:00"
   }
 }

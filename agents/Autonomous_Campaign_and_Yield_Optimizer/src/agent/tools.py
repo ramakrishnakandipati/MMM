@@ -15,6 +15,19 @@ from ..models.response_curves import ResponseModel
 from ..models.uplift_elasticity import UpliftModel
 
 
+def hitl_reasons(plan: dict, cfg: dict, gcfg: dict, extra: list | None = None) -> list[str]:
+    """Reasons a plan needs human approval (shared by the agent graph and the scenario studio)."""
+    h, reasons = cfg["hitl"], list(extra or [])
+    if plan["discount"] >= h["discount_tier_trigger"]:
+        reasons.append(f"discount_tier_{plan['discount']:.0%}")
+    tot_new, tot_prev = sum(plan["budgets"].values()), sum(plan["prev_budgets"].values())
+    if tot_prev > 0 and abs(tot_new - tot_prev) / tot_prev > h["total_budget_change_pct"]:
+        reasons.append(f"total_budget_change_{(tot_new - tot_prev) / tot_prev:+.1%}")
+    if plan["unit_margin"] - gcfg["min_unit_margin"] < h["margin_buffer"]:
+        reasons.append("unit_margin_near_floor")
+    return reasons
+
+
 class OnlineCalibrator:
     """Ridge-RLS per-channel multipliers m_c on the learned response (prior m=1).
 

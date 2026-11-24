@@ -14,9 +14,10 @@ import pandas as pd
 import streamlit as st
 
 from src.agent.graph import AgentService
+from src.agent.scenarios import SCENARIOS, run_all_scenarios, run_scenario
 from src.utils.config import out_dir
 from src.utils.logger import read_jsonl
-from src.utils.visualizer import flow_diagram
+from src.utils.visualizer import flow_diagram, scenario_chart
 
 st.set_page_config(page_title="Campaign & Yield Optimizer Studio", layout="wide", page_icon="📈")
 
@@ -53,7 +54,103 @@ with st.sidebar:
 
 report = jload("validation", "step_validation_report.json")
 metrics = jload("metrics", "system_metrics.json")
-tab_flow, tab_data, tab_gpu, tab_val, tab_hitl = st.tabs(["Flow Visualizer", "Data Explorer", "GPU Metrics", "Validation", "HITL Studio"])
+tab_sc, tab_flow, tab_data, tab_gpu, tab_val, tab_hitl = st.tabs(
+    ["Scenario Studio", "Flow Visualizer", "Data Explorer", "GPU Metrics", "Validation", "HITL Studio"])
+
+BADGE = {"PASS": ":green-background[PASS]", "PASS-HITL": ":orange-background[PASS + HITL]", "WARN": ":yellow-background[WARN]",
+         "FAIL": ":red-background[FAIL]", "SKIPPED": ":gray-background[SKIPPED]"}
+
+
+def base_context():
+    """A run whose models are trained (step >= 4). Starts an auto-approved run if none exists."""
+    for rid_ in reversed(list(AgentService._runs)):
+        s_ = AgentService.status(rid_)
+        if s_.get("step", 0) >= 4 and not s_.get("halted"):
+            return AgentService.context(rid_)
+    with st.spinner("Training GPU models on the synthetic world (about 30 s)..."):
+        s_ = AgentService.start(auto_approve=True)
+    st.session_state.rid = s_["run_id"]
+    return AgentService.context(s_["run_id"])
+
+
+def load_saved():
+    p = out_dir("scenarios", "scenario_results.json")
+    return json.loads(p.read_text()) if p.exists() else {}
+
+
+with tab_sc:
+    st.subheader("End-to-end scenario studio")
+    st.caption("Each scenario pushes a market situation through all six steps (data, features + drift, GPU models, "
+               "optimize + guardrails, offline replay + OPE, execute / HITL) using the models of a trained run. "
+               "Results are written to outputs/scenarios/ and outputs/charts/scenario_*.png.")
+    if "scenarios" not in st.session_state:
+        st.session_state.scenarios = load_saved()
+    colA, colB = st.columns([1, 2])
+    with colA:
+        labels = [s_["label"] for s_ in SCENARIOS]
+        choice = st.radio("Pick an example", labels, key="sc_choice")
+        sc_def = SCENARIOS[labels.index(choice)]
+        if st.button("Run selected scenario"):
+            ctx_ = base_context()
+            res_ = run_scenario(ctx_, sc_def)
+            scenario_chart(res_)
+            st.session_state.scenarios = {**st.session_state.scenarios, sc_def["id"]: res_}
+        if st.button("Run ALL scenarios", type="primary"):
+            ctx_ = base_context()
+            allres = run_all_scenarios(ctx_)
+            for r_ in allres.values():
+                scenario_chart(r_)
+            st.session_state.scenarios = allres
+            st.rerun()
+    with colB:
+        st.markdown(f"**Story.** {sc_def['story']}")
+        st.markdown(f"**What to expect.** {sc_def['expect']}")
+    res_all = st.session_state.scenarios
+    if res_all:
+        st.markdown("### All scenarios compared")
+        rows = []
+        for r_ in res_all.values():
+            rp, pl = r_.get("replay"), r_.get("plan")
+            rows.append({"scenario": r_["label"], "outcome": "HALTED" if r_["halted"] else "completed",
+                         "discount": f"{pl['discount']:.0%}" if pl else "-",
+                         "lift vs static %": round(rp["lift_vs_static_pct"], 1) if rp else None,
+                         "lift vs heuristic %": round(rp["lift_vs_heuristic_pct"], 1) if rp else None,
+                         "guardrail violations": rp["guardrail_violations"] if rp else "-",
+                         "HITL": r_["hitl"]["status"]})
+        df_sc = pd.DataFrame(rows)
+        st.dataframe(df_sc, hide_index=True, width="stretch")
+        st.bar_chart(df_sc.set_index("scenario")[["lift vs static %", "lift vs heuristic %"]])
+    r_ = res_all.get(sc_def["id"])
+    if r_:
+        st.markdown(f"### Flow: {r_['label']}")
+        cols = st.columns(6)
+        for c_, stp in zip(cols, r_["steps"]):
+            c_.markdown("**" + stp["name"] + "**\n\n" + BADGE.get(stp["status"], stp["status"]))
+        for stp in r_["steps"]:
+            st.markdown(f"- **{stp['name']}** - {BADGE.get(stp['status'], stp['status'])} {stp['detail']}")
+        if r_["halted"]:
+            st.error(f"HALT: {r_['halt_reason']}")
+        else:
+            pl = r_["plan"]
+            c1, c2, c3, c4 = st.columns(4)
+            c1.metric("Discount tier", f"{pl['discount']:.0%}")
+            c2.metric("Lift vs static", f"{r_['replay']['lift_vs_static_pct']:+.1f}%")
+            c3.metric("Lift vs heuristic", f"{r_['replay']['lift_vs_heuristic_pct']:+.1f}%")
+            c4.metric("HITL", r_["hitl"]["status"].replace("_", " "))
+            st.dataframe(pd.DataFrame({"previous": pl["prev_budgets"], "proposed": pl["budgets"]}).assign(
+                change_pct=lambda d: (d.proposed / d.previous - 1) * 100).round(1), width="stretch")
+            if r_["hitl"]["reasons"]:
+                st.warning("Needs human approval: " + ", ".join(r_["hitl"]["reasons"]))
+            with st.expander("Net margin by discount tier (planner's candidates)"):
+                st.dataframe(pd.DataFrame(r_["net_by_tier"]).T.round(3), width="stretch")
+            with st.expander("Gate 4 checks"):
+                st.dataframe(pd.DataFrame(r_["gate4"])[["name", "passed", "value", "threshold"]].astype(str), width="stretch")
+        png = out_dir("charts", f"scenario_{r_['id']}.png")
+        if png.exists():
+            st.image(str(png), width="stretch")
+    else:
+        st.info("Pick an example and press **Run selected scenario**, or **Run ALL scenarios**.")
+
 
 with tab_flow:
     gates = status.get("gates", {}) if rid else {}
