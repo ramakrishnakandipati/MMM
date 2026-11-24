@@ -1,0 +1,68 @@
+{
+  "adstock_search": {
+    "psi": 0.02844,
+    "ks_stat": 0.07222,
+    "ks_p": 0.47162
+  },
+  "adstock_social": {
+    "psi": 0.0605,
+    "ks_stat": 0.13704,
+    "ks_p": 0.0119
+  },
+  "adstock_video": {
+    "psi": 0.03409,
+    "ks_stat": 0.0537,
+    "ks_p": 0.82154
+  },
+  "adstock_display": {
+    "psi": 0.16801,
+    "ks_stat": 0.18333,
+    "ks_p": 0.00021
+  },
+  "adstock_affiliate": {
+    "psi": 0.08805,
+    "ks_stat": 0.11111,
+    "ks_p": 0.06865
+  },
+  "inventory_util": {
+    "psi": 0.04149,
+    "ks_stat": 0.08148,
+    "ks_p": 0.32313
+  },
+  "price_sens": {
+    "psi": 0.03226,
+    "ks_stat": 0.05741,
+    "ks_p": 0.75468
+  },
+  "loyalty": {
+    "psi": 0.01781,
+    "ks_stat": 0.05556,
+    "ks_p": 0.78888
+  },
+  "recency": {
+    "psi": 0.02699,
+    "ks_stat": 0.07407,
+    "ks_p": 0.43927
+  },
+  "mobile_share": {
+    "psi": 0.06069,
+    "ks_stat": 0.11852,
+    "ks_p": 0.0432
+  },
+  "weekend": {
+    "psi": 0.0,
+    "ks_stat": 0.00185,
+    "ks_p": 1.0
+  },
+  "total_spend": {
+    "psi": 0.09771,
+    "ks_stat": 0.15,
+    "ks_p": 0.00431
+  },
+  "unit_margin": {
+    "psi": 0.01386,
+    "ks_stat": 0.0537,
+    "ks_p": 0.82154
+  },
+  "_max_psi": 0.16801
+}

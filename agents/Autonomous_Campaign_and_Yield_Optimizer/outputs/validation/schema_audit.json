@@ -1,0 +1,19 @@
+{
+  "feature_spec_ok": true,
+  "invalid_rows_in_sample": 0,
+  "feature_cols": [
+    "adstock_search",
+    "adstock_social",
+    "adstock_video",
+    "adstock_display",
+    "adstock_affiliate",
+    "inventory_util",
+    "price_sens",
+    "loyalty",
+    "recency",
+    "mobile_share",
+    "weekend",
+    "total_spend",
+    "unit_margin"
+  ]
+}

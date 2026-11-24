@@ -1,0 +1,19 @@
+# Install torch separately for CUDA:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu128
+torch>=2.4
+numpy
+pandas
+pyarrow
+scipy
+cvxpy
+pydantic>=2
+pyyaml
+langgraph
+httpx
+flask
+streamlit>=1.35
+matplotlib
+pillow
+jinja2
+playwright
+pytest

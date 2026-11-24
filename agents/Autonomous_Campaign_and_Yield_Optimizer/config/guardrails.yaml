@@ -1,0 +1,6 @@
+max_channel_shift_pct: 0.15        # max single-cycle relative change of any channel budget
+min_unit_margin: 0.20              # (gross margin - discount) must stay >= this
+inventory_discount_cap: 0.85       # discounts suppressed when capacity/inventory utilization > this
+max_total_budget: 100000.0         # B_max (daily)
+min_channel_budget: 500.0          # floor so channels stay measurable (exploration floor)
+max_discount: 0.20

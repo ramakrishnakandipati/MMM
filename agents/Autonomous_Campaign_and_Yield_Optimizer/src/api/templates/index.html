@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campaign &amp; Yield Optimizer - Control Portal</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+  <h1>Autonomous Campaign &amp; Yield Optimizer</h1>
+  <p class="sub">Flask control portal &middot; GPU models &middot; 6 validation gates &middot; HITL approvals</p>
+</header>
+<main>
+  <section class="card controls">
+    <button id="run">Run agent cycle</button>
+    <label><input type="checkbox" id="auto" checked> auto-approve HITL (batch)</label>
+    <span id="runstate" class="pill">idle</span>
+    <span id="runid" class="muted"></span>
+  </section>
+
+  <section class="card">
+    <h2>Step flow</h2>
+    <div class="flow" id="flow">
+      {% for s in steps %}
+      <div class="step" data-step="{{ loop.index }}"><div class="num">{{ loop.index }}</div><div class="lbl">{{ s }}</div><div class="st">pending</div></div>
+      {% endfor %}
+    </div>
+    <p id="halt" class="halt" hidden></p>
+  </section>
+
+  <section class="card" id="hitlcard" hidden>
+    <h2>Human approval required</h2>
+    <pre id="hitlbody"></pre>
+    <button id="approve" class="ok">Approve</button>
+    <button id="reject" class="bad">Reject</button>
+  </section>
+
+  <section class="grid">
+    <div class="card"><h2>Headline metrics</h2><div id="metrics" class="kv">no run yet</div></div>
+    <div class="card"><h2>Proposed plan</h2><div id="plan" class="kv">-</div></div>
+  </section>
+
+  <section class="card"><h2>Validation gates</h2>
+    <table id="gates"><thead><tr><th>Gate</th><th>Name</th><th>Status</th><th>Failed checks</th></tr></thead><tbody></tbody></table>
+  </section>
+
+  <section class="card"><h2>LLM advisory (qwen3-vl-30b-a3b-instruct)</h2><div id="llm" class="kv">-</div></section>
+  <section class="card"><h2>Charts</h2><div id="charts" class="charts"></div></section>
+</main>
+<script>
+const $ = s => document.querySelector(s);
+const GN = {1:"Data integrity",2:"Features & drift",3:"Model calibration",4:"Optimization & guardrails",5:"Evaluation & OPE",6:"Execution & artifacts"};
+let rid = null, timer = null;
+const j = (u, o) => fetch(u, o).then(r => r.json());
+const pct = x => (x==null?'-':x.toFixed(1)+'%');
+const kv = o => Object.entries(o).map(([k,v])=>`<div><span>${k}</span><b>${v}</b></div>`).join('');
+
+async function refresh() {
+  const st = await j('/api/status' + (rid ? '?run_id='+rid : ''));
+  if (!st.run_id) return;
+  rid = st.run_id; $('#runid').textContent = 'run ' + rid;
+  const gates = st.gates || {};
+  document.querySelectorAll('.step').forEach(el => {
+    const n = el.dataset.step, g = gates[n];
+    el.className = 'step ' + (g ? (g.passed ? 'pass' : 'fail') : (st.step + 1 == n && !st.halted ? 'active' : ''));
+    el.querySelector('.st').textContent = g ? (g.passed ? 'PASS' : 'FAIL') : (el.classList.contains('active') ? 'running' : 'pending');
+  });
+  const tb = $('#gates tbody'); tb.innerHTML = '';
+  for (const n of [1,2,3,4,5,6]) { const g = gates[n]; if (!g) continue;
+    tb.insertAdjacentHTML('beforeend', `<tr><td>${n}</td><td>${GN[n]}</td><td class="${g.passed?'p':'f'}">${g.passed?'PASS':'FAIL'}</td><td>${(g.failed||[]).join(', ')||'-'}</td></tr>`); }
+  $('#halt').hidden = !st.halted; $('#halt').textContent = st.halted ? 'HALTED: ' + (st.halt_reason||'') : '';
+  const state = st.error ? 'error' : st.waiting_for_human ? 'awaiting approval' : st.halted ? 'halted' : st.step == 6 ? 'complete' : st.running ? 'running' : 'idle';
+  const rs = $('#runstate'); rs.textContent = state; rs.className = 'pill ' + state.replace(' ','-');
+  $('#hitlcard').hidden = !st.waiting_for_human;
+  if (st.waiting_for_human) $('#hitlbody').textContent = JSON.stringify(st.pending_interrupt, null, 2);
+  if (st.evaluation) $('#metrics').innerHTML = kv({'Lift vs static': pct(st.evaluation.lift_vs_static_pct), 'Lift vs heuristic': pct(st.evaluation.lift_vs_heuristic_pct),
+      'DR OPE lift': (st.evaluation.dr_lift*100).toFixed(1)+'%', '95% CI': st.evaluation.ci.map(x=>(x*100).toFixed(1)+'%').join(' .. '), 'Guardrail violations': st.evaluation.guardrail_violations});
+  if (st.plan) $('#plan').innerHTML = kv({Discount: (st.plan.discount*100)+'%', Creative: st.plan.creative, 'Unit margin': st.plan.unit_margin.toFixed(2),
+      'Solver': st.plan.solver+' / '+st.plan.status, 'Clamps': (st.plan.clamps||[]).join(', ')||'none', ...Object.fromEntries(Object.entries(st.plan.budgets).map(([k,v])=>[k, '$'+Math.round(v).toLocaleString()]))});
+  const L = {};
+  if (st.diagnosis) L['Diagnosis ['+st.diagnosis.meta.source+']'] = st.diagnosis.summary + ' (risk: '+st.diagnosis.risk+')';
+  if (st.visual) L['Visual QA ['+st.visual.meta.source+']'] = st.visual.verdict + ' - ' + (st.visual.findings||[]).join(' | ').slice(0,400);
+  if (st.hitl) L['HITL'] = st.hitl.status + (st.hitl.reasons ? ' ('+st.hitl.reasons.join(', ')+')' : '');
+  if (Object.keys(L).length) $('#llm').innerHTML = kv(L);
+  if (state === 'complete' || state === 'halted' || state === 'error') { clearInterval(timer); timer = null; loadCharts(); }
+}
+async function loadCharts() {
+  const names = await j('/api/charts');
+  $('#charts').innerHTML = names.map(n => `<figure><img src="/charts/${n}?t=${Date.now()}" alt="${n}"><figcaption>${n}</figcaption></figure>`).join('');
+}
+$('#run').onclick = async () => {
+  const r = await j('/api/run', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({auto_approve: $('#auto').checked})});
+  rid = r.run_id; if (timer) clearInterval(timer); timer = setInterval(refresh, 1200); refresh();
+};
+const decide = d => fetch('/api/hitl/'+d, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({run_id: rid, reviewer:'portal-user'})}).then(refresh);
+$('#approve').onclick = () => decide('approve'); $('#reject').onclick = () => decide('reject');
+refresh(); loadCharts();
+</script>
+</body>
+</html>

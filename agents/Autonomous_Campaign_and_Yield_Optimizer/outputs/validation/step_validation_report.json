@@ -1,0 +1,471 @@
+{
+  "gates": {
+    "1": {
+      "gate": 1,
+      "name": "Raw & Synthetic Data Integrity",
+      "passed": true,
+      "checks": [
+        {
+          "name": "row_count",
+          "passed": true,
+          "value": 900.0,
+          "threshold": "== 900",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "no_nan_inf",
+          "passed": true,
+          "value": 0.0,
+          "threshold": "== 0",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "spend_non_negative",
+          "passed": true,
+          "value": 1777.8439694563772,
+          "threshold": ">= 0",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "cogs_non_negative",
+          "passed": true,
+          "value": 35.899057919056574,
+          "threshold": ">= 0",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "capacity_util_in_[0,1]",
+          "passed": true,
+          "value": 0.98,
+          "threshold": "in [0,1]",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "timestamp_continuity",
+          "passed": true,
+          "value": 0.0,
+          "threshold": "0 gaps",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "row_schema",
+          "passed": true,
+          "value": 0.0,
+          "threshold": "== 0 invalid rows (sample 200)",
+          "critical": true,
+          "detail": ""
+        }
+      ],
+      "severity": "ok",
+      "seconds": 0.0055,
+      "timestamp": "2026-11-24T21:37:56.903862+00:00"
+    },
+    "2": {
+      "gate": 2,
+      "name": "Feature Engineering & Drift Check",
+      "passed": true,
+      "checks": [
+        {
+          "name": "adstock_decay_in_[0,1)",
+          "passed": true,
+          "value": 0.6,
+          "threshold": "0 <= decay < 1",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "feature_spec_schema",
+          "passed": true,
+          "value": true,
+          "threshold": null,
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "feature_row_schema",
+          "passed": true,
+          "value": 0.0,
+          "threshold": "== 0 invalid rows (sample 200)",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "features_finite",
+          "passed": true,
+          "value": null,
+          "threshold": null,
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "max_psi_train_vs_live",
+          "passed": true,
+          "value": 0.16801,
+          "threshold": "< 0.25",
+          "critical": true,
+          "detail": "{'adstock_display': 0.16801}"
+        }
+      ],
+      "severity": "ok",
+      "seconds": 0.013,
+      "timestamp": "2026-11-24T21:37:56.926872+00:00"
+    },
+    "3": {
+      "gate": 3,
+      "name": "Model Calibration & Convergence",
+      "passed": true,
+      "checks": [
+        {
+          "name": "response_r2_train",
+          "passed": true,
+          "value": 0.88337358537202,
+          "threshold": ">= 0.8",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "response_r2_holdout",
+          "passed": true,
+          "value": 0.8697995789889837,
+          "threshold": ">= 0.8",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "response_params_finite",
+          "passed": true,
+          "value": null,
+          "threshold": null,
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "adstock_decay_in_[0,1)",
+          "passed": true,
+          "value": 0.39240431785583496,
+          "threshold": "< 1",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "monotonic_increasing_response",
+          "passed": true,
+          "value": true,
+          "threshold": null,
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "diminishing_marginal_returns",
+          "passed": true,
+          "value": 0.0,
+          "threshold": "second derivative <= 0",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "cate_variance_bounds",
+          "passed": true,
+          "value": 1.4987033864599653e-05,
+          "threshold": "(1e-10, 0.05)",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "cate_mean_finite",
+          "passed": true,
+          "value": 0.007596747018396854,
+          "threshold": null,
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "cate_corr_with_truth",
+          "passed": true,
+          "value": 0.9104259669790905,
+          "threshold": "> 0.3",
+          "critical": false,
+          "detail": ""
+        },
+        {
+          "name": "bandit_covariance_finite",
+          "passed": true,
+          "value": true,
+          "threshold": null,
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "bandit_covariance_pd",
+          "passed": true,
+          "value": 0.9999610185623169,
+          "threshold": "> 0",
+          "critical": true,
+          "detail": ""
+        }
+      ],
+      "severity": "ok",
+      "seconds": 0.0002,
+      "timestamp": "2026-11-24T21:38:10.349599+00:00"
+    },
+    "4": {
+      "gate": 4,
+      "name": "Optimization & Guardrail Compliance",
+      "passed": true,
+      "checks": [
+        {
+          "name": "solver_status_optimal",
+          "passed": true,
+          "value": "optimal",
+          "threshold": "== optimal",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "budgets_non_negative",
+          "passed": true,
+          "value": 9077.162754905368,
+          "threshold": ">= 0",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "budget_conservation",
+          "passed": true,
+          "value": 71069.25693506197,
+          "threshold": "<= 100000.0",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "max_channel_shift",
+          "passed": true,
+          "value": 0.14999999998424995,
+          "threshold": "<= 0.15",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "discount_suppressed_when_inventory_high",
+          "passed": true,
+          "value": 0.2,
+          "threshold": "== 0 if util > 0.85",
+          "critical": true,
+          "detail": "util=0.522"
+        },
+        {
+          "name": "unit_margin_floor",
+          "passed": true,
+          "value": 0.3513917720677698,
+          "threshold": ">= 0.2",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "max_discount",
+          "passed": true,
+          "value": 0.2,
+          "threshold": "<= 0.2",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "expected_net_finite",
+          "passed": true,
+          "value": 36839.36615849894,
+          "threshold": null,
+          "critical": true,
+          "detail": ""
+        }
+      ],
+      "severity": "ok",
+      "seconds": 0.0001,
+      "timestamp": "2026-11-24T21:38:14.119207+00:00"
+    },
+    "5": {
+      "gate": 5,
+      "name": "Offline Evaluation & OPE Significance",
+      "passed": true,
+      "checks": [
+        {
+          "name": "ope_dr_lift_ci_lower_gt_0",
+          "passed": true,
+          "value": 0.27080076932907104,
+          "threshold": "> 0 (95% CI)",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "ope_ips_dr_agree_sign",
+          "passed": true,
+          "value": "ips=0.1942 dr=0.2785",
+          "threshold": null,
+          "critical": false,
+          "detail": ""
+        },
+        {
+          "name": "lift_vs_static_ge_target",
+          "passed": true,
+          "value": 36.36528804633846,
+          "threshold": ">= 8.0%",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "lift_vs_heuristic_ge_target",
+          "passed": true,
+          "value": 18.514695666321273,
+          "threshold": ">= 8.0%",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "replay_guardrail_violations",
+          "passed": true,
+          "value": 0.0,
+          "threshold": "== 0",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "all_regimes_evaluated",
+          "passed": true,
+          "value": 5.0,
+          "threshold": ">= 4",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "agent_beats_static_in_every_regime",
+          "passed": true,
+          "value": 6.505683297870804,
+          "threshold": "> 0",
+          "critical": false,
+          "detail": ""
+        }
+      ],
+      "severity": "ok",
+      "seconds": 0.0001,
+      "timestamp": "2026-11-24T21:38:15.804358+00:00"
+    },
+    "6": {
+      "gate": 6,
+      "name": "Execution & Output Artifact Integrity",
+      "passed": true,
+      "checks": [
+        {
+          "name": "required_artifacts_exist",
+          "passed": true,
+          "value": 0.0,
+          "threshold": "== 0",
+          "critical": true,
+          "detail": "[]"
+        },
+        {
+          "name": "artifacts_non_empty",
+          "passed": true,
+          "value": 0.0,
+          "threshold": "== 0",
+          "critical": true,
+          "detail": "[]"
+        },
+        {
+          "name": "json_artifacts_parse",
+          "passed": true,
+          "value": 0.0,
+          "threshold": "== 0",
+          "critical": true,
+          "detail": "[]"
+        },
+        {
+          "name": "execution_is_dry_run_or_approved",
+          "passed": true,
+          "value": true,
+          "threshold": "plan approved (auto or human)",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "execution_payload_guardrail_clean",
+          "passed": true,
+          "value": true,
+          "threshold": null,
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "agent_audit_has_decisions",
+          "passed": true,
+          "value": 9.0,
+          "threshold": ">= 6",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "audit_has_llm_or_mock_entries",
+          "passed": true,
+          "value": 2.0,
+          "threshold": ">= 1 (live or mock)",
+          "critical": true,
+          "detail": ""
+        },
+        {
+          "name": "audit_covers_agent_stages",
+          "passed": true,
+          "value": 9.0,
+          "threshold": ">= 3 stages",
+          "critical": false,
+          "detail": "['evaluate', 'execute', 'features', 'guardrails', 'hitl', 'ingest', 'llm_diagnose', 'llm_visual_verify', 'optimize']"
+        }
+      ],
+      "severity": "ok",
+      "seconds": 0.0019,
+      "timestamp": "2026-11-24T21:38:18.552458+00:00"
+    }
+  },
+  "history": [
+    {
+      "gate": 1,
+      "passed": true,
+      "timestamp": "2026-11-24T21:37:56.903862+00:00"
+    },
+    {
+      "gate": 2,
+      "passed": true,
+      "timestamp": "2026-11-24T21:37:56.926872+00:00"
+    },
+    {
+      "gate": 3,
+      "passed": true,
+      "timestamp": "2026-11-24T21:38:10.349599+00:00"
+    },
+    {
+      "gate": 4,
+      "passed": true,
+      "timestamp": "2026-11-24T21:38:14.119207+00:00"
+    },
+    {
+      "gate": 5,
+      "passed": true,
+      "timestamp": "2026-11-24T21:38:15.804358+00:00"
+    },
+    {
+      "gate": 6,
+      "passed": true,
+      "timestamp": "2026-11-24T21:38:18.552458+00:00"
+    }
+  ],
+  "summary": {
+    "gates_run": 6,
+    "gates_passed": 6,
+    "pass_rate": 1.0,
+    "all_passed": true,
+    "updated": "2026-11-24T21:38:18.552458+00:00"
+  }
+}

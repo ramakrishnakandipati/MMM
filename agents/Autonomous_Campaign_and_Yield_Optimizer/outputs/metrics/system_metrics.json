@@ -1,0 +1,112 @@
+{
+  "yield": {
+    "lift_vs_static_pct": 36.36528804633846,
+    "lift_vs_heuristic_pct": 18.514695666321273,
+    "total_net": {
+      "agent": 47695574.33329648,
+      "static": 34976330.86587914,
+      "heuristic": 40244438.94079061
+    },
+    "target_met": true
+  },
+  "ope": {
+    "ips_lift": 0.19423747062683105,
+    "dr_lift": 0.2785050868988037,
+    "lift_ci_low": 0.27080076932907104,
+    "lift_ci_high": 0.28627943992614746,
+    "bootstrap_ms": 35.2,
+    "n_boot": 10000
+  },
+  "guardrails": {
+    "violations": 0
+  },
+  "latency": {
+    "plan_ms_mean": 11.314785601571202,
+    "plan_ms_p95": 18.325060012284663,
+    "stage_seconds": {
+      "1_ingest": 0.0584,
+      "2_features": 0.3443,
+      "3_models": 16.8247,
+      "4_optimize": 0.1038,
+      "5_evaluate": 1.7522,
+      "6a_visual_qa_hitl": 2.6091
+    }
+  },
+  "gpu": {
+    "device": "cuda",
+    "device_type": "cuda",
+    "device_name": "NVIDIA GeForce RTX 3090",
+    "vram_mb": 24575,
+    "cuda_version": "12.8",
+    "torch_version": "2.11.0+cu128",
+    "amp_enabled": true,
+    "amp_dtype": "torch.bfloat16",
+    "fallback_used": false,
+    "compute_capability": "8.6"
+  },
+  "validation": {
+    "gates_run": 6,
+    "gates_passed": 6,
+    "pass_rate": 1.0,
+    "all_passed": true,
+    "updated": "2026-11-24T21:38:18.552458+00:00"
+  },
+  "run_id": "c6f0bd37",
+  "plan": {
+    "status": "optimal",
+    "budgets": {
+      "search": 9077.162754905368,
+      "social": 12706.02874833573,
+      "video": 18659.53021216635,
+      "display": 21359.13573754755,
+      "affiliate": 9267.399482106972
+    },
+    "prev_budgets": {
+      "search": 7893.185010138176,
+      "social": 11048.720655982577,
+      "video": 21952.3884843748,
+      "display": 25128.394984884442,
+      "affiliate": 10902.822919248083
+    },
+    "discount": 0.2,
+    "creative": 2,
+    "unit_margin": 0.3513917720677698,
+    "inventory_util": 0.5215776756587662,
+    "expected_net": 36839.36615849894,
+    "clamps": [],
+    "solver": "cvxpy/CLARABEL",
+    "est_lift": 0.2521424076192227,
+    "est_creative_mult": 1.0942531824111938,
+    "net_by_tier": {
+      "0.0": {
+        "net": 19565.6822450583,
+        "creative": 2,
+        "L": 0.0,
+        "mk": 1.093982458114624,
+        "status": "optimal"
+      },
+      "0.05": {
+        "net": 26232.09393098821,
+        "creative": 2,
+        "L": 0.08317597537372201,
+        "mk": 1.0851528644561768,
+        "status": "optimal"
+      },
+      "0.1": {
+        "net": 29730.684782162676,
+        "creative": 2,
+        "L": 0.1448177844285965,
+        "mk": 1.0799566507339478,
+        "status": "optimal"
+      },
+      "0.2": {
+        "net": 36839.36615849894,
+        "creative": 2,
+        "L": 0.2521424076192227,
+        "mk": 1.0942531824111938,
+        "status": "optimal"
+      }
+    },
+    "guardrail_ok": true
+  }
+}

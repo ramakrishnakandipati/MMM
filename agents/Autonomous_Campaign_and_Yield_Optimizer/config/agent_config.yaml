@@ -1,0 +1,58 @@
+seed: 7
+device: auto            # auto | cuda | mps | cpu
+
+data:
+  n_days: 900
+  n_channels: 5
+  train_end: 540        # days [0, train_end) = training window
+  live_end: 720         # [train_end, live_end) = live inference window; [live_end, n_days) = out-of-sample replay
+  b_max_daily: 100000.0 # B_max: total daily ad budget ceiling
+  aov: 85.0
+  gross_margin: 0.55
+
+cadence:
+  cycle_days: 7         # one agent decision per cycle
+
+response:
+  epochs: 1200
+  lr: 0.05
+  adstock_len: 21
+  r2_min: 0.80
+
+uplift:
+  n_samples: 40000
+  epochs: 60
+  batch_size: 2048
+  lr: 0.002
+
+bandit:
+  alpha: 0.5
+  ridge_lambda: 1.0
+  n_creatives: 4
+  discount_tiers: [0.0, 0.05, 0.10, 0.20]
+  n_log: 30000
+
+ope:
+  n_boot: 10000
+  ci: 0.95
+
+evaluation:
+  target_lift_pct: 8.0
+  regimes: [baseline, demand_shock, inventory_crunch, high_cac, margin_squeeze]
+
+hitl:
+  enabled: true
+  auto_approve_in_batch: true     # run_all.py auto-approves (logged); UIs set false
+  discount_tier_trigger: 0.10     # tiers >= this require approval
+  total_budget_change_pct: 0.10   # |change in total spend| above this requires approval
+  margin_buffer: 0.02             # unit margin within this of floor requires approval
+
+llm:
+  enabled: true
+  model: qwen3-vl-30b-a3b-instruct
+  base_url: http://127.0.0.1:1234      # overridden by env LOCAL_LLM_BASE_URL
+  probe_ports: [1234, 8000, 11434, 8080]
+  timeout_s: 180
+  max_tokens: 700
+  temperature: 0.0
+  use_mock_if_unavailable: true
