@@ -66,18 +66,18 @@ flowchart LR
 ## Live metrics
 
 <!-- BEGIN:METRICS -->
-_Last run: 2026-11-24 22:04 UTC on `NVIDIA GeForce RTX 3090` (24575 MB VRAM, CUDA 12.8)_
+_Last run: 2026-11-24 22:16 UTC on `NVIDIA GeForce RTX 3090` (24575 MB VRAM, CUDA 12.8)_
 
 | KPI | Value |
 |---|---|
 | Net yield lift vs static | **+36.3%** |
 | Net yield lift vs heuristic | **+18.5%** |
 | Target (>= +8%) met | yes |
-| OPE DR lift (95% CI) | +27.8% [+27.1%, +28.6%] |
-| OPE IPS lift | +19.6% |
-| GPU bootstrap (10,000 resamples) | 33 ms |
+| OPE DR lift (95% CI) | +27.9% [+27.1%, +28.6%] |
+| OPE IPS lift | +19.4% |
+| GPU bootstrap (10,000 resamples) | 31 ms |
 | Guardrail violations in replay | 0 |
-| Plan latency mean / p95 | 9.5 / 14.7 ms |
+| Plan latency mean / p95 | 8.6 / 12.8 ms |
 
 | Regime | Agent lift vs static | Agent lift vs heuristic | Violations |
 |---|---|---|---|
@@ -212,6 +212,7 @@ server is down a deterministic mock is used so CI and gate pass-rate never depen
 ![streamlit_02_flow](outputs/screenshots/streamlit_02_flow.png)
 ![streamlit_03_validation](outputs/screenshots/streamlit_03_validation.png)
 ![streamlit_04_gpu](outputs/screenshots/streamlit_04_gpu.png)
+![streamlit_05_data_explorer](outputs/screenshots/streamlit_05_data_explorer.png)
 
 **Streamlit - Scenario Studio (end-to-end examples)**
 
@@ -227,7 +228,7 @@ server is down a deterministic mock is used so CI and gate pass-rate never depen
 
 ## Presentation
 
-`presentation/Autonomous_Campaign_Yield_Optimizer.pptx` - 12-slide overview (objective, six-step flow and gates, GPU models, guardrails, HITL + local LLM, results, scenarios, UIs, limits).
+`presentation/Autonomous_Campaign_Yield_Optimizer.pptx` - 20-slide deck: overall scorecard, the six stages each with its own metrics and a Streamlit screenshot, six end-to-end scenario stories, UIs, limits.
 
 ## Layout
 

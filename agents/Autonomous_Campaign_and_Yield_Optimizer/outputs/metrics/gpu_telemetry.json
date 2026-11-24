@@ -10,7 +10,7 @@
   "fallback_used": false,
   "compute_capability": "8.6",
   "utilization": {
-    "timestamp": 1795557850.0771146,
+    "timestamp": 1795558601.3956356,
     "device": "cuda",
     "mem_allocated_mb": 17.3,
     "mem_peak_mb": 247.9,
@@ -20,6 +20,6 @@
     "resp_device": "cuda",
     "uplift_device": "cuda"
   },
-  "ope_bootstrap_ms": 32.6,
+  "ope_bootstrap_ms": 30.9,
   "ope_n_boot": 10000
 }

@@ -1,52 +1,52 @@
 {
   "baseline": {
     "net": {
-      "agent": 12714564.370792666,
+      "agent": 12714564.371437669,
       "static": 9169761.83635306,
       "heuristic": 10778081.504404185
     },
-    "lift_vs_static_pct": 38.6575202028303,
-    "lift_vs_heuristic_pct": 17.96686048066335,
+    "lift_vs_static_pct": 38.65752020986431,
+    "lift_vs_heuristic_pct": 17.966860486647736,
     "guardrail_violations": 0
   },
   "demand_shock": {
     "net": {
-      "agent": 10694685.929487316,
+      "agent": 10694686.134027282,
       "static": 7565075.220308913,
       "heuristic": 8708544.448840737
     },
-    "lift_vs_static_pct": 41.36919485977838,
-    "lift_vs_heuristic_pct": 22.806813380977456,
+    "lift_vs_static_pct": 41.3691975635184,
+    "lift_vs_heuristic_pct": 22.80681572970481,
     "guardrail_violations": 0
   },
   "inventory_crunch": {
     "net": {
-      "agent": 9766317.507215247,
+      "agent": 9766317.503221808,
       "static": 9169761.83635306,
       "heuristic": 9513737.10070426
     },
-    "lift_vs_static_pct": 6.505683370064986,
-    "lift_vs_heuristic_pct": 2.6549021045818995,
+    "lift_vs_static_pct": 6.505683326514907,
+    "lift_vs_heuristic_pct": 2.6549020626064013,
     "guardrail_violations": 0
   },
   "high_cac": {
     "net": {
-      "agent": 9496340.365774784,
+      "agent": 9496337.652119305,
       "static": 6600879.827839859,
       "heuristic": 7985969.237486511
     },
-    "lift_vs_static_pct": 43.86476671977933,
-    "lift_vs_heuristic_pct": 18.912809245476698,
+    "lift_vs_static_pct": 43.864725609267545,
+    "lift_vs_heuristic_pct": 18.912775265187037,
     "guardrail_violations": 0
   },
   "margin_squeeze": {
     "net": {
-      "agent": 5015305.313728933,
+      "agent": 5015305.491305167,
       "static": 2470852.14502425,
       "heuristic": 3258106.6493549095
     },
-    "lift_vs_static_pct": 102.9787708596263,
-    "lift_vs_heuristic_pct": 53.93312292959904,
+    "lift_vs_static_pct": 102.97877804646805,
+    "lift_vs_heuristic_pct": 53.9331283798882,
     "guardrail_violations": 0
   }
 }

@@ -1,11 +1,11 @@
 {
   "validation/drift_report.json": "7c01a292cc725011",
   "validation/schema_audit.json": "94f2edceeefd21ff",
-  "evaluation/benchmark_comparison.csv": "1fd7e75e23ac0763",
-  "evaluation/ope_replay_results.json": "8fa252f3deb31c44",
-  "evaluation/regime_breakdown.json": "79136ed3f9814867",
-  "metrics/gpu_telemetry.json": "2d656b27161dc6da",
-  "metrics/step_timings.csv": "6784f359a8af7fe5",
+  "evaluation/benchmark_comparison.csv": "64d206f0840ff50d",
+  "evaluation/ope_replay_results.json": "cec1182e2f343c2c",
+  "evaluation/regime_breakdown.json": "0540f091c82710c9",
+  "metrics/gpu_telemetry.json": "f537a4cd0212ef9f",
+  "metrics/step_timings.csv": "b0b6e2912a019cc1",
   "data/features_snapshot.parquet": "5ccc9a881d545f6a",
-  "data/counterfactual_replay.parquet": "df0dc9088b7a9e62"
+  "data/counterfactual_replay.parquet": "0fb34931bc50ad68"
 }
